@@ -1,0 +1,385 @@
+/* Service detail page — builds on index.css */
+.button-light {
+    background: transparent;
+    border-color: rgba(255, 255, 255, .55);
+    color: #fff
+}
+
+.button-light:hover,
+.button-light:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    color: var(--primary)
+}
+
+.sd-hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    padding-block: clamp(3rem, 7vw, 6rem);
+    background: radial-gradient(circle at 90% 10%, rgba(214, 166, 71, .3), transparent 45%), linear-gradient(135deg, #4a1220, #7a2435 60%, #5a1829)
+}
+
+.sd-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .07;
+    background: repeating-linear-gradient(45deg, #d6a647 0 1px, transparent 1px 22px)
+}
+
+.sd-hero .container {
+    position: relative;
+    z-index: 1
+}
+
+.sd-hero h1 {
+    color: #fff
+}
+
+.sd-hero :focus-visible {
+    outline-color: #fff
+}
+
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    font-size: .78rem;
+    color: rgba(255, 255, 255, .75)
+}
+
+.crumbs li+li::before {
+    content: "/";
+    margin-inline-end: .5rem;
+    color: var(--secondary)
+}
+
+.crumbs a:hover {
+    color: var(--secondary)
+}
+
+.sd-hero .eyebrow {
+    color: var(--secondary)
+}
+
+.sd-icon {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 56px;
+    block-size: 56px;
+    border-radius: 16px;
+    margin-block-end: 1.25rem;
+    background: var(--secondary);
+    color: var(--primary)
+}
+
+.sd-lead {
+    color: rgba(255, 255, 255, .85);
+    font-size: 1.05rem;
+    max-inline-size: 540px
+}
+
+.sd-photo {
+    margin: 0;
+    padding: .7rem;
+    border: 1px solid var(--secondary);
+    border-radius: 48% 48% 18px 18px;
+    background: rgba(255, 255, 255, .07)
+}
+
+.sd-photo img {
+    inline-size: 100%;
+    block-size: clamp(250px, 40vh, 400px);
+    object-fit: cover;
+    border-radius: inherit
+}
+
+.sd-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: start
+}
+
+.sd-body p {
+    color: var(--muted)
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    gap: .8rem
+}
+
+.check-list li {
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start
+}
+
+.check-list .lucide {
+    color: var(--secondary);
+    margin-block-start: .2rem
+}
+
+.glance {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + 24px);
+    padding: 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-block-start: 4px solid var(--secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow)
+}
+
+.glance dl {
+    margin: 0 0 1.5rem
+}
+
+.glance dt {
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--section-accent);
+    font-weight: 700
+}
+
+.glance dd {
+    margin: 0 0 1rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.15rem;
+    color: var(--heading)
+}
+
+.glance .button {
+    inline-size: 100%
+}
+
+.reason {
+    block-size: 100%;
+    position: relative;
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+    transition: .25s ease
+}
+
+.reason:hover {
+    border-color: var(--secondary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow)
+}
+
+.reason .n {
+    font: 600 2.4rem/1 "Playfair Display", Georgia, serif;
+    color: var(--secondary);
+    display: block;
+    margin-block-end: .75rem
+}
+
+.reason p {
+    color: var(--muted);
+    font-size: .9rem;
+    margin: 0
+}
+
+.price-card {
+    position: relative;
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 1.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    transition: .25s ease
+}
+
+.price-card:hover {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow)
+}
+
+.price-card.featured {
+    background: linear-gradient(160deg, #5a1829, #7a2435);
+    color: #fff;
+    border-color: var(--secondary);
+    transform: translateY(-8px)
+}
+
+.price-card.featured h3,
+.price-card.featured .amount {
+    color: #fff
+}
+
+.price-card.featured li,
+.price-card.featured .for {
+    color: rgba(255, 255, 255, .85)
+}
+
+.price-card .premium-badge {
+    position: absolute;
+    inset-block-start: -12px;
+    inset-inline-start: 1.5rem;
+    font-size: .7rem;
+    padding: .25rem .7rem
+}
+
+.amount {
+    font: 600 2.2rem/1.1 "Playfair Display", Georgia, serif;
+    color: var(--heading);
+    margin-block: .75rem .25rem
+}
+
+.amount small {
+    font: 500 .78rem "DM Sans", Arial, sans-serif;
+    color: inherit;
+    opacity: .7
+}
+
+.for {
+    color: var(--muted);
+    font-size: .85rem
+}
+
+.price-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.75rem;
+    display: grid;
+    gap: .6rem;
+    font-size: .88rem;
+    color: var(--muted)
+}
+
+.price-card li {
+    display: flex;
+    gap: .6rem
+}
+
+.price-card li .lucide {
+    color: var(--secondary);
+    inline-size: 18px;
+    block-size: 18px;
+    margin-block-start: .2rem
+}
+
+.price-card .button {
+    margin-block-start: auto
+}
+
+.price-card.featured .button-primary {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c
+}
+
+.price-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: .78rem;
+    margin: 2rem 0 0
+}
+
+.cta-card {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+    border-radius: 28px;
+    overflow: hidden;
+    background: radial-gradient(circle at 15% 0%, rgba(214, 166, 71, .3), transparent 50%), linear-gradient(135deg, #5a1829, #7a2435);
+    box-shadow: var(--shadow)
+}
+
+.cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(214, 166, 71, .55);
+    border-radius: 18px;
+    pointer-events: none
+}
+
+.cta-card h2 {
+    color: #fff;
+    max-inline-size: 640px;
+    margin-inline: auto
+}
+
+.cta-card p {
+    color: rgba(255, 255, 255, .85);
+    margin-block-end: 1.75rem
+}
+
+.cta-card .button-primary {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c
+}
+
+.cta-card .button-primary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--primary)
+}
+
+.cta-card :focus-visible {
+    outline-color: #fff
+}
+
+.cta-orn {
+    display: block;
+    color: var(--secondary);
+    font-size: 2.25rem;
+    line-height: 1;
+    margin-block-end: .75rem
+}
+
+@media (max-width:991.98px) {
+    .sd-grid {
+        grid-template-columns: 1fr
+    }
+
+    .glance {
+        position: static
+    }
+
+    .price-card.featured {
+        transform: none
+    }
+
+    .sd-photo {
+        max-inline-size: 540px;
+        margin-inline: auto
+    }
+}
+
+@media (max-width:575.98px) {
+    .sd-hero .button-group {
+        flex-direction: column;
+        align-items: stretch
+    }
+}
+
+#detail-root .button {
+    background: var(--primary);
+    border-color: var(--secondary);
+    color: #fff
+}
+
+#detail-root .button:hover,
+#detail-root .button:focus-visible {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c
+}

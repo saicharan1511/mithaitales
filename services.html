@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#7A2435">
+    <meta name="description"
+        content="Gift boxes, corporate gifting, bulk orders, wedding favours, festival hampers and custom dry fruit gifting from Mithai Tales.">
+    <title>Services | Mithai Tales</title>
+    <link rel="icon" type="image/png" href="mithai-logo.png">
+    <script>(() => { try { const t = localStorage.getItem("sweetshop-theme"), d = localStorage.getItem("sweetshop-direction"); document.documentElement.dataset.theme = t === "dark" || t === "light" ? t : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dir = d === "rtl" ? "rtl" : "ltr" } catch (_) { } })();</script>
+    <link id="bootstrap-ltr" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link id="bootstrap-rtl" rel="stylesheet" disabled
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <script>if (document.documentElement.dir === "rtl") { document.getElementById("bootstrap-ltr").disabled = true; document.getElementById("bootstrap-rtl").disabled = false }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="services.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script defer src="index.js"></script>
+    <script defer src="services.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <symbol id="shop-symbol" viewBox="0 0 64 64">
+            <image href="mithai-logo.png" width="64" height="64" />
+        </symbol>
+    </svg>
+
+    <header class="site-header" id="site-header">
+        <div class="container header-shell">
+            <a class="brand-link" href="index.html" aria-label="Mithai Tales home"><svg class="brand-symbol"
+                    aria-hidden="true">
+                    <use href="#shop-symbol"></use>
+                </svg><span class="brand-copy"><span class="brand-name"><span class="secondary-word">Mithai</span> <span
+                            class="tales-word">Tales</span></span><span class="brand-tagline">Every Bite Tells a Sweet
+                        Story.</span></span></a>
+            <button class="icon-button mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-expanded="false"
+                aria-controls="header-panel" aria-label="Open navigation" hidden><i data-lucide="menu"
+                    aria-hidden="true"></i></button>
+            <div class="header-panel" id="header-panel">
+                <nav class="main-nav" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li class="home-dropdown"><button class="nav-link home-trigger" id="home-trigger" type="button"
+                                aria-expanded="true" aria-controls="home-options">Home <i data-lucide="chevron-down"
+                                    aria-hidden="true"></i></button>
+                            <ul class="home-options" id="home-options">
+                                <li><a href="index.html">Home 1 — Classic</a></li>
+                                <li><a href="home-2.html"><span>Home 2 — Premium</span><span
+                                            class="premium-badge">Premium</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-link" href="about.html">About Us</a></li>
+                        <li><a class="nav-link" href="products.html">Products</a></li>
+                        <li><a class="nav-link active" href="services.html" aria-current="page">Services</a></li>
+                        <li><a class="nav-link" href="festival-orders.html">Festival Orders</a></li>
+                        <li><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-controls">
+                    <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode"
+                        aria-pressed="false" hidden><i data-lucide="moon" aria-hidden="true"></i></button>
+                    <button class="icon-button direction-button" id="direction-toggle" type="button"
+                        aria-label="Switch to right-to-left layout" aria-pressed="false" hidden><i
+                            data-lucide="arrow-right-left" aria-hidden="true"></i></button>
+                    <a class="button button-primary login-button" href="order.html">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+        <!-- HERO -->
+        <section class="svc-hero" aria-labelledby="svc-title">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Our Services</p>
+                        <h1 id="svc-title">Thoughtful Gifting, <em>Beautifully Delivered.</em></h1>
+                        <p class="svc-lead">From a single gift box to a grand wedding, we help you plan sweets, savories
+                            and presentation that feel personal.</p>
+                        <div class="button-group"><a class="button button-primary" href="#services-grid">Explore
+                                Services <i data-lucide="arrow-down" aria-hidden="true"></i></a><a
+                                class="button button-light" href="contact.html?topic=ordering">Talk to the Store</a>
+                        </div>
+                        <div class="hero-badges"><span class="premium-badge">Premium</span><span>Custom
+                                Boxes</span><span>Bulk Planning</span><span>Festive Hampers</span></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="svc-art">
+                            <div class="svc-arch"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/0/08/Box_with_savories_and_sweets_on_a_plain_background.jpg"
+                                    alt="Gift box with Mysore pak and savory thattai" width="3072" height="2048"
+                                    fetchpriority="high" decoding="async"></div>
+                            <figcaption><span class="small-label">Made to be shared</span>Six ways to say it sweetly
+                            </figcaption><span class="hero-spark spark-one" aria-hidden="true">✦</span>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE CARDS (rendered by services.js) -->
+        <section class="section-space" id="services-grid" aria-labelledby="grid-title">
+            <div class="container">
+                <div class="section-heading text-center reveal">
+                    <p class="eyebrow">What we offer</p>
+                    <h2 id="grid-title">Six services. One sweet standard.</h2>
+                    <p>Choose a service to see what is included, why it works and how pricing is planned.</p>
+                </div>
+                <div class="row g-4" id="svc-cards"></div>
+                <noscript>
+                    <p class="text-center">Enable JavaScript to view service details, or <a href="contact.html">contact
+                            the store</a>.</p>
+                </noscript>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="section-space surface-alt gallery" aria-labelledby="gal-title">
+            <div class="container">
+                <div class="section-heading heading-split reveal">
+                    <div>
+                        <p class="eyebrow">Gallery</p>
+                        <h2 id="gal-title">A look at our work.</h2>
+                    </div>
+                    <p>Selections and arrangements we have<br>prepared for tables and celebrations.</p>
+                </div>
+                <div class="gallery-grid reveal">
+                    <button class="g-item g-wide" type="button"
+                        data-full="https://upload.wikimedia.org/wikipedia/commons/0/08/Box_with_savories_and_sweets_on_a_plain_background.jpg"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Box_with_savories_and_sweets_on_a_plain_background.jpg"
+                            alt="Sweet and savory sharing box" loading="lazy" width="3072" height="2048"><span>Sweet
+                            &amp; savory sharing box</span></button>
+                    <button class="g-item" type="button"
+                        data-full="https://upload.wikimedia.org/wikipedia/commons/c/c3/Motichur_Laddu_%281%29.jpg"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Motichur_Laddu_%281%29.jpg"
+                            alt="Motichoor laddus" loading="lazy" width="1500" height="1125"><span>Festive
+                            laddus</span></button>
+                    <button class="g-item g-tall" type="button"
+                        data-full="https://upload.wikimedia.org/wikipedia/commons/a/ac/Kaju_katli_sweet.jpg"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Kaju_katli_sweet.jpg"
+                            alt="Kaju katli" loading="lazy" width="2000" height="1500"><span>Corporate kaju
+                            katli</span></button>
+                    <button class="g-item" type="button"
+                        data-full="https://upload.wikimedia.org/wikipedia/commons/f/ff/Mysore_pak.jpg"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Mysore_pak.jpg"
+                            alt="Mysore pak on a banana leaf" loading="lazy" width="4368" height="2912"><span>Mysore pak
+                            platter</span></button>
+                    <button class="g-item" type="button"
+                        data-full="https://upload.wikimedia.org/wikipedia/commons/9/97/MixedNuts.JPG"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/97/MixedNuts.JPG" alt="Mixed nuts"
+                            loading="lazy" width="653" height="490"><span>Dry fruit hampers</span></button>
+                    <button class="g-item g-wide" type="button"
+                        data-full="https://upload.wikimedia.org/wikipedia/commons/c/c6/Bombaymix.jpg"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Bombaymix.jpg" alt="Savory mixture"
+                            loading="lazy" width="760" height="686"><span>Bulk savory mix</span></button>
+                </div>
+            </div>
+            <dialog class="lightbox" id="lightbox" aria-label="Gallery image"><button type="button" class="icon-button"
+                    id="lb-close" aria-label="Close image"><i data-lucide="x" aria-hidden="true"></i></button><img
+                    id="lb-img" alt=""></dialog>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-space faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-4 reveal">
+                        <p class="eyebrow">Before you enquire</p>
+                        <h2 id="faq-title">Service questions, answered.</h2>
+                        <p>Need something specific? The <a class="inline-link" href="contact.html">Contact page</a> is
+                            the fastest route.</p>
+                    </div>
+                    <div class="col-lg-8 reveal">
+                        <div class="faq-list">
+                            <details class="faq-item" open>
+                                <summary>How early should I plan a service order?<i data-lucide="plus"
+                                        aria-hidden="true"></i></summary>
+                                <div class="faq-answer">
+                                    <p>Share your date and quantity as early as you can, especially around festivals and
+                                        wedding seasons. The store confirms availability.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Can I mix sweets, savories and dry fruits?<i data-lucide="plus"
+                                        aria-hidden="true"></i></summary>
+                                <div class="faq-answer">
+                                    <p>Yes. Most services allow mixed selections. The store will confirm which
+                                        combinations suit your pack format.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Do you offer personalised packaging?<i data-lucide="plus"
+                                        aria-hidden="true"></i></summary>
+                                <div class="faq-answer">
+                                    <p>Personalised notes and branded sleeves can be discussed per order, depending on
+                                        quantity and lead time.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Is pricing fixed?<i data-lucide="plus" aria-hidden="true"></i></summary>
+                                <div class="faq-answer">
+                                    <p>Prices shown are starting guides. Final quotes depend on selection, quantity and
+                                        packaging.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA CARD -->
+        <section class="section-space cta-wrap">
+            <div class="container">
+                <div class="cta-card reveal"><span class="cta-orn" aria-hidden="true">✧</span>
+                    <h2>Let’s plan something sweet together.</h2>
+                    <p>Tell us the occasion, the quantity and the date. We will help shape the rest.</p>
+                    <div class="button-group justify-content-center"><a class="button button-primary"
+                            href="contact.html?topic=ordering">Start an Enquiry <i class="directional-icon"
+                                data-lucide="arrow-up-right" aria-hidden="true"></i></a><a class="button button-light"
+                            href="festival-orders.html">Festival Orders</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a class="brand-link" href="index.html" aria-label="Mithai Tales home"><svg
+                            class="brand-symbol" aria-hidden="true">
+                            <use href="#shop-symbol"></use>
+                        </svg><span class="brand-copy"><span class="brand-name"><span
+                                    class="secondary-word">Mithai</span> <span
+                                    class="tales-word">Tales</span></span><span class="brand-tagline">Every Bite Tells a
+                                Sweet Story.</span></span></a>
+                    <p class="footer-logo-tagline">Handcrafted tradition, festive joy, and everyday sweetness in every
+                        bite.</p>
+                    <p>Traditional sweets, savory moments and thoughtful gifts. Made for the joy of sharing.</p>
+                    <div class="social-links" aria-label="Social profiles">
+                        <a href="https://example.com/replace-instagram"
+                            aria-label="Instagram — replace with your profile"><i class="bi bi-instagram"
+                                aria-hidden="true"></i></a>
+                        <a href="https://example.com/replace-facebook"
+                            aria-label="Facebook — replace with your profile"><i class="bi bi-facebook"
+                                aria-hidden="true"></i></a>
+                        <a href="https://example.com/replace-youtube"
+                            aria-label="YouTube — replace with your channel"><i class="bi bi-youtube"
+                                aria-hidden="true"></i></a>
+                        <a href="https://example.com/replace-whatsapp"
+                            aria-label="WhatsApp — replace with your business link"><i class="bi bi-whatsapp"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <nav aria-label="Footer quick links">
+                    <h2 class="footer-title">Quick Links</h2>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html" aria-current="page">Services</a></li>
+                        <li><a href="festival-orders.html">Festival Orders</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Product categories">
+                    <h2 class="footer-title">Categories</h2>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=sweets">Sweets</a></li>
+                        <li><a href="products.html?category=savories">Savories</a></li>
+                        <li><a href="products.html?category=dry-fruits">Dry Fruits</a></li>
+                        <li><a href="products.html?category=gift-boxes">Gift Boxes</a></li>
+                        <li><a href="products.html?category=corporate-gifts">Corporate Gifts</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <h2 class="footer-title">Contact</h2>
+                    <ul class="footer-links">
+                        <li><a href="contact.html?topic=ordering">Ordering enquiries</a></li>
+                    </ul>
+                    <div class="footer-contact-list" aria-label="Store contact details">
+                        <div class="contact-item"><span class="contact-icon" aria-hidden="true"><i
+                                    class="bi bi-geo-alt-fill"></i></span><span class="contact-detail">12 Example Lane,
+                                Hyderabad, Telangana 500033</span></div>
+                        <div class="contact-item"><span class="contact-icon" aria-hidden="true"><i
+                                    class="bi bi-telephone-fill"></i></span><span class="contact-detail">+91 00000
+                                00000</span></div>
+                        <div class="contact-item"><span class="contact-icon" aria-hidden="true"><i
+                                    class="bi bi-envelope-fill"></i></span><span
+                                class="contact-detail">hello@mithaitales.example.com</span></div>
+                    </div>
+                </div>
+                <div class="footer-promo">
+                    <h2 class="footer-title">A Sweet Celebration</h2>
+                    <p>Make your next gathering memorable with sweets and thoughtful gift boxes.</p><a
+                        class="button button-primary" href="festival-orders.html">Explore Festival Orders</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="copyright-year">2026</span> Mithai Tales. All rights reserved.</p>
+                <div class="legal-links"><a href="privacy-policy.html">Privacy Policy</a><a
+                        href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+/* Services page — builds on index.css (Home 1 tokens, header, footer, buttons, FAQ) */
+.button-light {
+    background: transparent;
+    border-color: rgba(255, 255, 255, .55);
+    color: #fff
+}
+
+.button-light:hover,
+.button-light:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    color: var(--primary)
+}
+
+.inline-link {
+    color: var(--section-accent);
+    text-decoration: underline
+}
+
+/* Hero */
+.svc-hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+    background: radial-gradient(circle at 85% 20%, rgba(214, 166, 71, .28), transparent 45%), linear-gradient(135deg, #4a1220, #7a2435 55%, #5a1829)
+}
+
+.svc-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .07;
+    background: repeating-linear-gradient(45deg, #d6a647 0 1px, transparent 1px 22px)
+}
+
+.svc-hero .container {
+    position: relative;
+    z-index: 1
+}
+
+.svc-hero h1 {
+    color: #fff
+}
+
+.svc-hero h1 em {
+    color: var(--secondary);
+    font-weight: 400
+}
+
+.svc-hero .eyebrow {
+    width: fit-content;
+    padding: .45rem .8rem;
+    border-radius: 999px;
+    background: var(--secondary);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: .65rem
+}
+
+.svc-hero .eyebrow-line {
+    background: var(--primary)
+}
+
+.svc-hero .button-primary {
+    border-color: var(--secondary)
+}
+
+.svc-lead {
+    max-inline-size: 520px;
+    color: rgba(255, 255, 255, .85);
+    font-size: 1.05rem
+}
+
+.svc-hero :focus-visible {
+    outline-color: #fff
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-block-start: 1.75rem
+}
+
+.hero-badges span {
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .3rem .8rem;
+    border: 1px solid rgba(214, 166, 71, .6);
+    border-radius: 999px;
+    color: #fff
+}
+
+.hero-badges .premium-badge {
+    border: 0;
+    color: #211e1c;
+    font-size: .72rem;
+    padding: .3rem .8rem
+}
+
+.svc-art {
+    position: relative;
+    margin: 0;
+    padding: 1rem
+}
+
+.svc-arch {
+    border: 1px solid var(--secondary);
+    border-radius: 48% 48% 18px 18px;
+    padding: .7rem;
+    background: rgba(255, 255, 255, .06);
+    backdrop-filter: blur(6px)
+}
+
+.svc-arch img {
+    inline-size: 100%;
+    block-size: clamp(260px, 42vh, 420px);
+    object-fit: cover;
+    border-radius: inherit
+}
+
+.svc-art figcaption {
+    display: grid;
+    text-align: center;
+    margin-block-start: 1rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.05rem
+}
+
+.svc-art .small-label {
+    color: var(--secondary)
+}
+
+.svc-hero .spark-one {
+    inset-block-start: 6%;
+    inset-inline-end: 2%
+}
+
+/* Cards */
+.svc-card {
+    position: relative;
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 2rem 1.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition)
+}
+
+.svc-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition);
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--soft-accent), transparent 70%)
+}
+
+.svc-card::after {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s ease
+}
+
+.svc-card:hover,
+.svc-card:focus-within {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow);
+    transform: translateY(-4px)
+}
+
+.svc-card:hover::before {
+    opacity: 1
+}
+
+.svc-card:hover::after,
+.svc-card:focus-within::after {
+    transform: scaleX(1)
+}
+
+.svc-num {
+    position: absolute;
+    inset-block-start: 1rem;
+    inset-inline-end: 1.25rem;
+    font: 600 3rem/1 "Playfair Display", Georgia, serif;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border)
+}
+
+.svc-icon {
+    inline-size: 60px;
+    block-size: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    margin-block-end: 1.4rem;
+    color: var(--secondary);
+    background: var(--primary)
+}
+
+.svc-icon .lucide {
+    inline-size: 26px;
+    block-size: 26px
+}
+
+.svc-card h3 {
+    position: relative
+}
+
+.svc-card p {
+    position: relative;
+    color: var(--muted);
+    font-size: .9rem
+}
+
+.svc-tags {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem
+}
+
+.svc-tags li {
+    font-size: .68rem;
+    font-weight: 600;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    background: var(--soft-accent);
+    color: var(--accent-text);
+    border: 1px solid var(--border)
+}
+
+.svc-card .button {
+    position: relative;
+    margin-block-start: auto
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem
+}
+
+.g-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--image-bg);
+    cursor: zoom-in
+}
+
+.g-wide {
+    grid-column: auto
+}
+
+.g-tall {
+    grid-row: auto
+}
+
+.g-item img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform .6s ease
+}
+
+.g-item:hover img,
+.g-item:focus-visible img {
+    transform: scale(1.07)
+}
+
+.g-item span {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: 2rem 1rem .8rem;
+    text-align: start;
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 600;
+    background: linear-gradient(transparent, rgba(33, 14, 20, .85));
+    transform: translateY(40%);
+    opacity: 0;
+    transition: .3s ease
+}
+
+.g-item:hover span,
+.g-item:focus-visible span {
+    transform: none;
+    opacity: 1
+}
+
+.lightbox {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-inline-size: min(92vw, 1000px);
+    overflow: visible
+}
+
+.lightbox::backdrop {
+    background: rgba(20, 8, 12, .82)
+}
+
+.lightbox img {
+    inline-size: 100%;
+    max-block-size: 82vh;
+    object-fit: contain;
+    border-radius: 14px;
+    border: 2px solid var(--secondary);
+    background: var(--card)
+}
+
+.lightbox .icon-button {
+    position: absolute;
+    inset-block-start: -52px;
+    inset-inline-end: 0;
+    background: var(--card)
+}
+
+/* CTA card */
+.cta-card {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+    border-radius: 28px;
+    overflow: hidden;
+    background: radial-gradient(circle at 15% 0%, rgba(214, 166, 71, .3), transparent 50%), linear-gradient(135deg, #5a1829, #7a2435);
+    box-shadow: var(--shadow)
+}
+
+.cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(214, 166, 71, .55);
+    border-radius: 18px;
+    pointer-events: none
+}
+
+.cta-card h2 {
+    color: #fff;
+    max-inline-size: 640px;
+    margin-inline: auto
+}
+
+.cta-card p {
+    color: rgba(255, 255, 255, .85);
+    margin-block-end: 1.75rem
+}
+
+.cta-card .button-primary {
+    background: var(--primary);
+    border-color: var(--secondary);
+    color: #fff
+}
+
+.cta-card .button-primary:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c
+}
+
+.cta-card :focus-visible {
+    outline-color: #fff
+}
+
+.svc-hero .button:hover,
+.svc-hero .button:focus-visible,
+.svc-card .button:hover,
+.svc-card .button:focus-visible,
+.cta-card .button:hover,
+.cta-card .button:focus-visible {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c
+}
+
+.cta-orn {
+    display: block;
+    color: var(--secondary);
+    font-size: 2.25rem;
+    line-height: 1;
+    margin-block-end: .75rem
+}
+
+.cta-card .button-primary:hover,
+.cta-card .button-primary:focus-visible {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c
+}
+
+@media (max-width:991.98px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .svc-art {
+        max-inline-size: 560px;
+        margin-inline: auto
+    }
+}
+
+@media (max-width:575.98px) {
+    .gallery-grid {
+        gap: .6rem
+    }
+
+    .svc-hero .button-group {
+        flex-direction: column;
+        align-items: stretch
+    }
+}

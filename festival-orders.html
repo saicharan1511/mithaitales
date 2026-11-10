@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#7A2435">
+  <meta name="description"
+        content="Plan festival sweets, savories and gift boxes for Diwali, Eid, weddings and family celebrations. Share your occasion, quantity and date and confirm arrangements with the store.">
+  <title>Festival Orders | Mithai Tales</title>
+
+  <link rel="icon" type="image/png" href="mithai-logo.png">
+
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem("sweetshop-theme");
+        const direction = localStorage.getItem("sweetshop-direction");
+        document.documentElement.dataset.theme =
+          theme === "dark" || theme === "light"
+            ? theme
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark" : "light";
+        document.documentElement.dir = direction === "rtl" ? "rtl" : "ltr";
+      } catch (_) {}
+    })();
+  </script>
+
+  <link id="bootstrap-ltr" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link id="bootstrap-rtl" rel="stylesheet" disabled
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+
+  <script>
+    if (document.documentElement.dir === "rtl") {
+      document.getElementById("bootstrap-ltr").disabled = true;
+      document.getElementById("bootstrap-rtl").disabled = false;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Shared base, header, footer, buttons, FAQ (same file as the home page) -->
+  <link rel="stylesheet" href="index.css">
+  <!-- Festival Orders page styles -->
+  <link rel="stylesheet" href="festival-orders.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer src="index.js"></script>
+  <script defer src="festival-orders.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true" focusable="false">
+    <symbol id="shop-symbol" viewBox="0 0 64 64">
+      <image href="mithai-logo.png" width="64" height="64"/>
+    </symbol>
+  </svg>
+
+  <!-- ================= HEADER (same as home) ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-shell">
+      <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+        <svg class="brand-symbol" aria-hidden="true">
+          <use href="#shop-symbol"></use>
+        </svg>
+        <span class="brand-copy">
+          <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+          <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+        </span>
+      </a>
+
+      <button class="icon-button mobile-menu-toggle" id="mobile-menu-toggle"
+              type="button" aria-expanded="false" aria-controls="header-panel"
+              aria-label="Open navigation" hidden>
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+
+      <div class="header-panel" id="header-panel">
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="home-dropdown">
+              <button class="nav-link home-trigger" id="home-trigger"
+                      type="button" aria-expanded="true"
+                      aria-controls="home-options">
+                Home
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <ul class="home-options" id="home-options">
+                <li>
+                  <a href="index.html">
+                    Home 1 — Classic
+                  </a>
+                </li>
+                <li>
+                  <a href="home-2.html">
+                    <span>Home 2 — Premium</span>
+                    <span class="premium-badge">Premium</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="about.html">About Us</a></li>
+            <li><a class="nav-link" href="products.html">Products</a></li>
+            <li><a class="nav-link" href="services.html">Services</a></li>
+            <li><a class="nav-link active" href="festival-orders.html" aria-current="page">Festival Orders</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="icon-button" id="theme-toggle" type="button"
+                  aria-label="Switch to dark mode" aria-pressed="false" hidden>
+            <i data-lucide="moon" aria-hidden="true"></i>
+          </button>
+          <button class="icon-button direction-button" id="direction-toggle"
+                  type="button" aria-label="Switch to right-to-left layout"
+                  aria-pressed="false" hidden>
+            <i data-lucide="arrow-right-left" aria-hidden="true"></i>
+          </button>
+          <a class="button button-primary login-button" href="order.html">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- SECTION 1 / 7: Hero (full-screen background image) -->
+    <section class="fo-hero" aria-labelledby="fo-hero-title">
+      <div class="fo-hero-bg" data-parallax="0.18" aria-hidden="true">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diya_set_in_a_rangoli.jpg?width=2000"
+             alt="" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+      <div class="fo-hero-overlay" aria-hidden="true"></div>
+      <span class="fo-hero-glow glow-a" aria-hidden="true"></span>
+      <span class="fo-hero-glow glow-b" aria-hidden="true"></span>
+
+      <div class="container fo-hero-inner">
+        <div class="row align-items-center g-4 g-xl-5 w-100 m-0">
+          <div class="col-lg-7 fo-hero-copy">
+            <p class="fo-hero-eyebrow" data-rise style="--d:0ms">
+              <span class="eyebrow-line" aria-hidden="true"></span>
+              Festival Orders
+            </p>
+            <h1 id="fo-hero-title" data-rise style="--d:120ms">
+              Celebrate big. We'll bring the <em>mithai.</em>
+            </h1>
+            <p class="fo-hero-lead" data-rise style="--d:240ms">
+              From Diwali tables to wedding gift boxes, plan sweets, savories and
+              dry fruits for the moments that matter. Share your occasion,
+              quantity and date, then confirm everything with the store.
+            </p>
+
+            <div class="button-group" data-rise style="--d:360ms">
+              <a class="button button-primary" href="contact.html?topic=festival-orders">
+                Plan My Festival Order
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+              <a class="button button-secondary" href="#process">
+                See How It Works
+              </a>
+            </div>
+
+            <ul class="fo-trust" data-rise style="--d:480ms">
+              <li><i data-lucide="gift" aria-hidden="true"></i>Festive gift boxes</li>
+              <li><i data-lucide="calendar-check" aria-hidden="true"></i>Advance planning</li>
+              <li><i data-lucide="handshake" aria-hidden="true"></i>Confirmed with the store</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-5 fo-hero-side" data-rise style="--d:300ms">
+            <aside class="fo-planner" aria-label="Festival order planner">
+              <span class="fo-chip fo-chip-top" aria-hidden="true">✦ Made for sharing</span>
+              <p class="fo-planner-kicker">Your festive checklist</p>
+              <h2 class="fo-planner-title">Four things to share with us</h2>
+              <ol class="fo-planner-list">
+                <li><span>1</span><div><strong>The occasion</strong><small>Festival, wedding or gifting</small></div></li>
+                <li><span>2</span><div><strong>Your favorites</strong><small>Sweets, savories, dry fruits</small></div></li>
+                <li><span>3</span><div><strong>Quantity &amp; date</strong><small>Estimates are perfectly fine</small></div></li>
+                <li><span>4</span><div><strong>Presentation</strong><small>Boxes, trays or gift packs</small></div></li>
+              </ol>
+              <a class="fo-planner-link" href="contact.html?topic=festival-orders">
+                Start an enquiry
+                <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <span class="fo-chip fo-chip-bottom" aria-hidden="true">Availability confirmed in advance</span>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <div class="fo-marquee" aria-hidden="true">
+        <div class="fo-marquee-track">
+          <span>Diwali</span><span>Eid</span><span>Weddings</span><span>Raksha Bandhan</span>
+          <span>Ganesh Chaturthi</span><span>Pongal</span><span>Housewarmings</span><span>Corporate Gifting</span>
+          <span>Diwali</span><span>Eid</span><span>Weddings</span><span>Raksha Bandhan</span>
+          <span>Ganesh Chaturthi</span><span>Pongal</span><span>Housewarmings</span><span>Corporate Gifting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 / 7: Occasions (tabbed) -->
+    <section class="section-space fo-occasions" id="occasions" aria-labelledby="fo-occasions-title">
+      <div class="container">
+        <div class="section-heading text-center reveal">
+          <p class="eyebrow">Every celebration, sweetly planned</p>
+          <h2 id="fo-occasions-title">Choose the occasion. We'll shape the box.</h2>
+          <p>Different moments call for different selections. Pick one to explore.</p>
+        </div>
+
+        <div class="fo-occasion-layout reveal">
+          <div class="fo-tabs" role="tablist" aria-label="Occasions" aria-orientation="vertical">
+            <button class="fo-tab is-active" role="tab" id="tab-diwali" type="button"
+                    aria-selected="true" aria-controls="panel-diwali">
+              <span class="fo-tab-num">01</span>
+              <span class="fo-tab-text"><strong>Diwali</strong><small>The festival of lights</small></span>
+              <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button class="fo-tab" role="tab" id="tab-weddings" type="button"
+                    aria-selected="false" tabindex="-1" aria-controls="panel-weddings">
+              <span class="fo-tab-num">02</span>
+              <span class="fo-tab-text"><strong>Weddings &amp; Milestones</strong><small>Engagements, baby showers, housewarmings</small></span>
+              <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button class="fo-tab" role="tab" id="tab-eid" type="button"
+                    aria-selected="false" tabindex="-1" aria-controls="panel-eid">
+              <span class="fo-tab-num">03</span>
+              <span class="fo-tab-text"><strong>Eid &amp; Family Feasts</strong><small>Tables made for sharing</small></span>
+              <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button class="fo-tab" role="tab" id="tab-gifting" type="button"
+                    aria-selected="false" tabindex="-1" aria-controls="panel-gifting">
+              <span class="fo-tab-num">04</span>
+              <span class="fo-tab-text"><strong>Thank-You Gifting</strong><small>Teams, clients and neighbours</small></span>
+              <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="fo-panels">
+            <article class="fo-panel" role="tabpanel" id="panel-diwali" aria-labelledby="tab-diwali">
+              <figure class="fo-panel-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diwali_Sweets.jpg?width=1200"
+                     alt="An assortment of Diwali sweets arranged on a plate"
+                     width="1200" height="800" loading="lazy" decoding="async">
+              </figure>
+              <div class="fo-panel-body">
+                <h3>Light up the table.</h3>
+                <p>Bring together classic mithai, crunchy savories and nutty favorites for Diwali visits, pooja and family gatherings.</p>
+                <ul class="fo-tags">
+                  <li>Sweet assortments</li><li>Savory mixes</li><li>Dry fruits</li><li>Gift boxes</li>
+                </ul>
+                <a class="text-link" href="contact.html?topic=festival-orders">
+                  Plan a Diwali order
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="fo-panel" role="tabpanel" id="panel-weddings" aria-labelledby="tab-weddings" hidden>
+              <figure class="fo-panel-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab_jamuns_at_an_Indian_Party.jpg?width=1200"
+                     alt="Gulab jamuns served at an Indian celebration"
+                     width="1200" height="800" loading="lazy" decoding="async">
+              </figure>
+              <div class="fo-panel-body">
+                <h3>Sweet beginnings, beautifully shared.</h3>
+                <p>Share sweets with guests for engagements, weddings, baby showers and housewarmings, arranged to suit the size of your event.</p>
+                <ul class="fo-tags">
+                  <li>Return favors</li><li>Guest boxes</li><li>Mithai trays</li><li>Occasion notes</li>
+                </ul>
+                <a class="text-link" href="contact.html?topic=festival-orders">
+                  Plan a celebration order
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="fo-panel" role="tabpanel" id="panel-eid" aria-labelledby="tab-eid" hidden>
+              <figure class="fo-panel-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Eidulfitr_meal.jpg?width=1200"
+                     alt="A family sharing an Eid meal together"
+                     width="1200" height="800" loading="lazy" decoding="async">
+              </figure>
+              <div class="fo-panel-body">
+                <h3>For tables full of family.</h3>
+                <p>Add sweets, dry fruits and savories to feasts and visits, with quantities discussed ahead of time so the day feels effortless.</p>
+                <ul class="fo-tags">
+                  <li>Dessert platters</li><li>Dry fruit boxes</li><li>Savory snacks</li><li>Family packs</li>
+                </ul>
+                <a class="text-link" href="contact.html?topic=festival-orders">
+                  Plan a family order
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="fo-panel" role="tabpanel" id="panel-gifting" aria-labelledby="tab-gifting" hidden>
+              <figure class="fo-panel-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Barfi-Diwali_sweet.jpg?width=1200"
+                     alt="Barfi pieces prepared for Diwali gifting"
+                     width="1024" height="768" loading="lazy" decoding="async">
+              </figure>
+              <div class="fo-panel-body">
+                <h3>A thoughtful thank-you.</h3>
+                <p>Say thanks to colleagues, clients and neighbours with a consistent selection and presentation that feels personal.</p>
+                <ul class="fo-tags">
+                  <li>Team gifting</li><li>Client boxes</li><li>Budget discussion</li><li>Consistent packing</li>
+                </ul>
+                <a class="text-link" href="contact.html?topic=corporate-gifting">
+                  Discuss gifting
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 / 7: How it works -->
+    <section class="section-space surface-alt fo-process" id="process" aria-labelledby="fo-process-title">
+      <div class="container">
+        <div class="section-heading text-center reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="fo-process-title">From your idea to a festive table.</h2>
+          <p>Four simple steps, with the store alongside you.</p>
+        </div>
+
+        <ol class="fo-steps" data-stagger>
+          <li class="fo-step">
+            <span class="fo-step-dot"><i data-lucide="sparkles" aria-hidden="true"></i></span>
+            <span class="fo-step-label">Step 01</span>
+            <h3>Choose your occasion</h3>
+            <p>Tell us what you're celebrating and who you're sharing with.</p>
+          </li>
+          <li class="fo-step">
+            <span class="fo-step-dot"><i data-lucide="layout-grid" aria-hidden="true"></i></span>
+            <span class="fo-step-label">Step 02</span>
+            <h3>Pick your assortment</h3>
+            <p>Select sweets, savories, dry fruits or a ready-to-share gift box.</p>
+          </li>
+          <li class="fo-step">
+            <span class="fo-step-dot"><i data-lucide="calendar-clock" aria-hidden="true"></i></span>
+            <span class="fo-step-label">Step 03</span>
+            <h3>Share quantity &amp; date</h3>
+            <p>Give an estimate and your preferred date. Early planning helps.</p>
+          </li>
+          <li class="fo-step">
+            <span class="fo-step-dot"><i data-lucide="badge-check" aria-hidden="true"></i></span>
+            <span class="fo-step-label">Step 04</span>
+            <h3>Confirm with the store</h3>
+            <p>Availability and arrangements are confirmed before you finalize plans.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 4 / 7: What to expect (maroon band) -->
+    <section class="section-space fo-expect" aria-labelledby="fo-expect-title">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <figure class="fo-expect-image reveal">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/India_-_Varanasi_pastry_shop_-_2542.jpg?width=1200"
+                   alt="A traditional Indian sweet shop counter filled with trays of mithai"
+                   width="1200" height="800" loading="lazy" decoding="async">
+              <figcaption class="fo-float-badge">
+                <i data-lucide="badge-check" aria-hidden="true"></i>
+                Confirmed with the store
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-lg-7 reveal">
+            <p class="eyebrow">What to expect</p>
+            <h2 id="fo-expect-title">A thoughtful approach to every celebration.</h2>
+            <p class="fo-expect-lead">
+              We treat festival orders like the occasions they are: planned early,
+              arranged with care and discussed personally.
+            </p>
+
+            <div class="fo-feature-grid" data-stagger>
+              <article class="fo-feature">
+                <i data-lucide="gift" aria-hidden="true"></i>
+                <h3>Curated assortments</h3>
+                <p>Combine sweets and savories into selections that suit your guests.</p>
+              </article>
+              <article class="fo-feature">
+                <i data-lucide="package-check" aria-hidden="true"></i>
+                <h3>Presentation options</h3>
+                <p>Discuss boxes, trays and gift packs that feel ready to share.</p>
+              </article>
+              <article class="fo-feature">
+                <i data-lucide="calendar-clock" aria-hidden="true"></i>
+                <h3>Advance planning</h3>
+                <p>Share your date early so arrangements can be confirmed in time.</p>
+              </article>
+              <article class="fo-feature">
+                <i data-lucide="message-circle-heart" aria-hidden="true"></i>
+                <h3>Personal conversation</h3>
+                <p>Talk through preferences, quantities and special requests.</p>
+              </article>
+            </div>
+
+            <a class="button button-primary" href="services.html">
+              Explore Services
+              <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 / 7: Festive selections -->
+    <section class="section-space fo-hampers" aria-labelledby="fo-hampers-title">
+      <div class="container">
+        <div class="section-heading heading-split reveal">
+          <div>
+            <p class="eyebrow">Popular festive selections</p>
+            <h2 id="fo-hampers-title">Start with a familiar set.</h2>
+          </div>
+          <p>Choose a starting point, then<br>shape it to your celebration.</p>
+        </div>
+
+        <div class="row g-4" data-stagger>
+          <div class="col-sm-6 col-xl-3">
+            <article class="fo-card">
+              <div class="fo-card-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Indian_Sweet_Dessert_Peda_in_a_white_bone_china_plate.jpg?width=900"
+                     alt="Peda sweets served on a white plate"
+                     width="900" height="675" loading="lazy" decoding="async">
+                <span class="fo-card-tag">Pooja &amp; prasad</span>
+              </div>
+              <div class="fo-card-body">
+                <h3>Prasad Boxes</h3>
+                <p>Simple, traditional sweets packed for pooja and temple visits.</p>
+                <ul><li>Peda &amp; laddu</li><li>Small pack formats</li></ul>
+                <a class="text-link" href="contact.html?topic=festival-orders">
+                  Enquire
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <article class="fo-card">
+              <div class="fo-card-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Almond_Khoa_based_burfi_Mumbai_India_%28cropped%29.jpg?width=900"
+                     alt="Almond and khoa based burfi pieces"
+                     width="900" height="675" loading="lazy" decoding="async">
+                <span class="fo-card-tag">Premium gifting</span>
+              </div>
+              <div class="fo-card-body">
+                <h3>Burfi Gift Boxes</h3>
+                <p>Rich khoa and nut sweets arranged for special gestures.</p>
+                <ul><li>Assorted burfi</li><li>Gift presentation</li></ul>
+                <a class="text-link" href="contact.html?topic=festival-orders">
+                  Enquire
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <article class="fo-card">
+              <div class="fo-card-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Two_Layered_Coconut_Barfi.JPG?width=900"
+                     alt="Two layered coconut barfi cut into squares"
+                     width="900" height="675" loading="lazy" decoding="async">
+                <span class="fo-card-tag">Family gatherings</span>
+              </div>
+              <div class="fo-card-body">
+                <h3>Mithai Trays</h3>
+                <p>Generous trays of sweets for family visits and open houses.</p>
+                <ul><li>Mixed sweet trays</li><li>Event-size planning</li></ul>
+                <a class="text-link" href="contact.html?topic=bulk-orders">
+                  Enquire
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <article class="fo-card">
+              <div class="fo-card-image">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DiwaliShop.JPG?width=900"
+                     alt="A small festive shop stocked with clay diyas for Diwali"
+                     width="900" height="600" loading="lazy" decoding="async">
+                <span class="fo-card-tag">Festive touch</span>
+              </div>
+              <div class="fo-card-body">
+                <h3>Festive Add-ons</h3>
+                <p>Ask about finishing touches that make a gift feel celebratory.</p>
+                <ul><li>Occasion notes</li><li>Custom requests</li></ul>
+                <a class="text-link" href="contact.html?topic=gift-customization">
+                  Enquire
+                  <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 / 7: FAQ -->
+    <section class="section-space surface-alt fo-faq" aria-labelledby="fo-faq-title">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4 reveal">
+            <div class="fo-faq-intro">
+              <p class="eyebrow">Good to know</p>
+              <h2 id="fo-faq-title">Festival orders, answered.</h2>
+              <p>Not sure where to begin? Tell us who you're celebrating with and we'll help shape the selection.</p>
+              <div class="fo-faq-note">
+                <i data-lucide="phone-call" aria-hidden="true"></i>
+                <span>Prefer to talk it through? Visit our Contact page.</span>
+              </div>
+              <a class="button button-primary" href="contact.html?topic=festival-orders">
+                Talk to Us
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-8 reveal">
+            <div class="faq-list">
+              <details class="faq-item" open>
+                <summary aria-controls="fo-answer-1">
+                  What should I include in my festival enquiry?
+                  <i data-lucide="plus" aria-hidden="true"></i>
+                </summary>
+                <div class="faq-answer" id="fo-answer-1">
+                  <p>Share the occasion, your preferred date, approximate quantity and the sweets, savories or gift boxes you like. Estimates are fine, and the store will help refine them.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary aria-controls="fo-answer-2">
+                  How early should I plan?
+                  <i data-lucide="plus" aria-hidden="true"></i>
+                </summary>
+                <div class="faq-answer" id="fo-answer-2">
+                  <p>Planning ahead gives the best chance of confirming your preferred selection. Enquire as early as you can and confirm availability with the store before finalizing your plans.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary aria-controls="fo-answer-3">
+                  Can I mix sweets and savories in one order?
+                  <i data-lucide="plus" aria-hidden="true"></i>
+                </summary>
+                <div class="faq-answer" id="fo-answer-3">
+                  <p>Yes, sweet and savory combinations are a popular way to build a festival assortment. Share your preferences and the store can confirm which combinations are available.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary aria-controls="fo-answer-4">
+                  Can the boxes be customized?
+                  <i data-lucide="plus" aria-hidden="true"></i>
+                </summary>
+                <div class="faq-answer" id="fo-answer-4">
+                  <p>Describe your idea through the <a href="contact.html?topic=gift-customization">Contact page</a>. The store will confirm what customization and presentation options are possible.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary aria-controls="fo-answer-5">
+                  Where can I find ingredient and storage details?
+                  <i data-lucide="plus" aria-hidden="true"></i>
+                </summary>
+                <div class="faq-answer" id="fo-answer-5">
+                  <p>Follow the product label for ingredients, allergens, storage and best-before guidance. If anything is unclear, ask through the <a href="contact.html?topic=product-information">Contact page</a> before ordering.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 / 7: Final CTA (image-backed split panel, different from home) -->
+    <section class="fo-cta" aria-labelledby="fo-cta-title">
+      <div class="fo-cta-bg" data-parallax="0.12" aria-hidden="true">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Woman_lighting_the_candles_for_the_Festival_of_Lights_in_India_%28cropped%29.jpg?width=2000"
+             alt="" width="2000" height="1590" loading="lazy" decoding="async">
+      </div>
+      <div class="fo-cta-overlay" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="fo-cta-panel reveal">
+          <span class="fo-cta-ornament" aria-hidden="true">✦</span>
+
+          <div class="fo-cta-main">
+            <p class="fo-cta-eyebrow">Ready when you are</p>
+            <h2 id="fo-cta-title">Let's plan your festive table.</h2>
+            <p>Tell us about your occasion and we'll help you shape a selection worth sharing.</p>
+            <div class="button-group">
+              <a class="button button-primary" href="contact.html?topic=festival-orders">
+                Start Festival Enquiry
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+              <a class="button button-outline-light" href="products.html">
+                Browse Products
+              </a>
+            </div>
+          </div>
+
+          <div class="fo-cta-list">
+            <h3>Keep these handy</h3>
+            <ul>
+              <li><i data-lucide="check" aria-hidden="true"></i>Occasion &amp; preferred date</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Approximate quantity</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Favorite sweets &amp; savories</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Packing &amp; presentation ideas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER (same as home) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+            <svg class="brand-symbol" aria-hidden="true">
+              <use href="#shop-symbol"></use>
+            </svg>
+            <span class="brand-copy">
+              <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+              <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+            </span>
+          </a>
+          <p class="footer-logo-tagline">
+            Handcrafted tradition, festive joy, and everyday sweetness in every bite.
+          </p>
+          <p>
+            Traditional sweets, savory moments and thoughtful gifts.
+            Made for the joy of sharing.
+          </p>
+
+          <!-- EDIT: Replace example.com URLs with your verified social profiles. -->
+          <div class="social-links" aria-label="Social profiles">
+            <a href="https://example.com/replace-instagram"
+               aria-label="Instagram — replace with your profile">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-facebook"
+               aria-label="Facebook — replace with your profile">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-youtube"
+               aria-label="YouTube — replace with your channel">
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-whatsapp"
+               aria-label="WhatsApp — replace with your business link">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer quick links">
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="festival-orders.html">Festival Orders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Product categories">
+          <h2 class="footer-title">Categories</h2>
+          <ul class="footer-links">
+            <li><a href="products.html?category=sweets">Sweets</a></li>
+            <li><a href="products.html?category=savories">Savories</a></li>
+            <li><a href="products.html?category=dry-fruits">Dry Fruits</a></li>
+            <li><a href="products.html?category=gift-boxes">Gift Boxes</a></li>
+            <li><a href="products.html?category=corporate-gifts">Corporate Gifts</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><a href="contact.html?topic=ordering">Ordering enquiries</a></li>
+          </ul>
+          <div class="footer-contact-list" aria-label="Store contact details">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill"></i>
+              </span>
+              <span class="contact-detail">12 Example Lane, Hyderabad, Telangana 500033</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-telephone-fill"></i>
+              </span>
+              <span class="contact-detail">+91 00000 00000</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-envelope-fill"></i>
+              </span>
+              <span class="contact-detail">hello@mithaitales.example.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-promo">
+          <h2 class="footer-title">A Sweet Celebration</h2>
+          <p>Make your next gathering memorable with sweets and thoughtful gift boxes.</p>
+          <a class="button button-primary" href="festival-orders.html">
+            Explore Festival Orders
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year">2026</span> Mithai Tales. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

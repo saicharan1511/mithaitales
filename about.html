@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#7A2435">
+    <meta name="description"
+        content="Meet Mithai Tales: our story, values and craft behind traditional Indian sweets, savories and thoughtfully arranged gift boxes.">
+    <title>About Us | Mithai Tales</title>
+
+    <link rel="icon" type="image/png" href="mithai-logo.png">
+
+    <script>
+        (() => {
+            try {
+                const theme = localStorage.getItem("sweetshop-theme");
+                const direction = localStorage.getItem("sweetshop-direction");
+                document.documentElement.dataset.theme =
+                    theme === "dark" || theme === "light"
+                        ? theme
+                        : matchMedia("(prefers-color-scheme: dark)").matches
+                            ? "dark" : "light";
+                document.documentElement.dir = direction === "rtl" ? "rtl" : "ltr";
+            } catch (_) { }
+        })();
+    </script>
+
+    <link id="bootstrap-ltr" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link id="bootstrap-rtl" rel="stylesheet" disabled
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <script>
+        if (document.documentElement.dir === "rtl") {
+            document.getElementById("bootstrap-ltr").disabled = true;
+            document.getElementById("bootstrap-rtl").disabled = false;
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="about.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script defer src="about.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <symbol id="shop-symbol" viewBox="0 0 64 64">
+            <image href="mithai-logo.png" width="64" height="64"/>
+        </symbol>
+    </svg>
+
+    <header class="site-header" id="site-header">
+    <div class="container header-shell">
+      <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+        <svg class="brand-symbol" aria-hidden="true">
+          <use href="#shop-symbol"></use>
+        </svg>
+        <span class="brand-copy">
+          <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+          <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+        </span>
+      </a>
+
+      <button class="icon-button mobile-menu-toggle" id="mobile-menu-toggle"
+              type="button" aria-expanded="false" aria-controls="header-panel"
+              aria-label="Open navigation" hidden>
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+
+      <div class="header-panel" id="header-panel">
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="home-dropdown">
+              <button class="nav-link home-trigger" id="home-trigger"
+                      type="button" aria-expanded="true"
+                      aria-controls="home-options">
+                Home
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <ul class="home-options" id="home-options">
+                <li>
+                  <a href="index.html">
+                    Home 1 — Classic
+                  </a>
+                </li>
+                <li>
+                  <a href="home-2.html">
+                    <span>Home 2 — Premium</span>
+                    <span class="premium-badge">Premium</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="nav-link active" href="about.html" aria-current="page">About Us</a></li>
+            <li><a class="nav-link" href="products.html">Products</a></li>
+            <li><a class="nav-link" href="services.html">Services</a></li>
+            <li><a class="nav-link" href="festival-orders.html">Festival Orders</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="icon-button" id="theme-toggle" type="button"
+                  aria-label="Switch to dark mode" aria-pressed="false" hidden>
+            <i data-lucide="moon" aria-hidden="true"></i>
+          </button>
+          <button class="icon-button direction-button" id="direction-toggle"
+                  type="button" aria-label="Switch to right-to-left layout"
+                  aria-pressed="false" hidden>
+            <i data-lucide="arrow-right-left" aria-hidden="true"></i>
+          </button>
+          <a class="button button-primary login-button" href="order.html">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <main id="main-content" tabindex="-1">
+
+        <!-- SECTION 1 / 7: Hero -->
+        <section class="about-hero" aria-labelledby="about-title">
+            <span class="ring ring-1" aria-hidden="true"></span>
+            <span class="ring ring-2" aria-hidden="true"></span>
+            <span class="hero-star star-a" aria-hidden="true">✦</span>
+            <span class="hero-star star-b" aria-hidden="true">✧</span>
+
+            <div class="container hero-center">
+                <p class="eyebrow hero-eyebrow">
+                    <span class="eyebrow-line" aria-hidden="true"></span>
+                    About Mithai Tales
+                    <span class="eyebrow-line" aria-hidden="true"></span>
+                </p>
+
+                <h1 id="about-title" class="hero-title">
+                    <span class="line"><span class="word" style="--i:0">Sweet</span> <span class="word"
+                            style="--i:1">stories,</span></span>
+                    <span class="line"><span class="word" style="--i:2">told</span> <span class="word"
+                            style="--i:3">one</span> <em class="word" style="--i:4">bite</em> <span class="word"
+                            style="--i:5">at</span> <span class="word" style="--i:6">a</span> <em class="word"
+                            style="--i:7">time.</em></span>
+                </h1>
+
+                <p class="hero-lead">
+                    We believe a good sweet carries memory, warmth and a reason to
+                    gather. This is the story behind our table.
+                </p>
+
+                <div class="button-group justify-content-center">
+                    <a class="button button-primary" href="#story">
+                        Read Our Story
+                        <i data-lucide="arrow-down" aria-hidden="true"></i>
+                    </a>
+                    <a class="button button-outline-light" href="products.html">
+                        Explore Products
+                    </a>
+                </div>
+
+                <div class="hero-gallery" aria-hidden="false">
+                    <figure class="hg hg-1" style="--f:14">
+                        <img src="https://i.pinimg.com/1200x/65/23/b4/6523b47bdf51b6ada6839ea1e86d0c17.jpg"
+                            alt="Kaju katli diamonds with a silver finish" width="2000" height="1500" loading="eager"
+                            decoding="async">
+                    </figure>
+                    <figure class="hg hg-2" style="--f:22">
+                        <img src="https://i.pinimg.com/1200x/66/f1/83/66f18377d00fd861777f92ee69550131.jpg"
+                            alt="Golden-orange motichoor laddus" width="1500" height="1125" loading="eager"
+                            fetchpriority="high" decoding="async">
+                    </figure>
+                    <figure class="hg hg-3" style="--f:14">
+                        <img src="https://i.pinimg.com/1200x/aa/7e/9c/aa7e9ca46c1cf431a6d9d30e783680b3.jpg"
+                            alt="Mysore pak pieces on a banana leaf" width="4368" height="2912" loading="eager"
+                            decoding="async">
+                    </figure>
+                </div>
+            </div>
+
+            <a class="scroll-cue hero-cue" href="#story">
+                
+                
+                
+            </a>
+        </section>
+
+        <!-- SECTION 2 / 7: Our story -->
+        <section class="section-space story" id="story" aria-labelledby="story-title">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="story-visual reveal">
+                            <figure class="sv-main">
+                                <img src="https://i.pinimg.com/1200x/7c/db/bb/7cdbbb260f3ca3fc21be306b96cb1e90.jpg"
+                                    alt="A box arranged with Mysore pak and savory thattai" width="3072" height="2048"
+                                    loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="sv-small">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Bombaymix.jpg"
+                                    alt="A bowl of crunchy savory mixture" width="760" height="686" loading="lazy"
+                                    decoding="async">
+                            </figure>
+                            <span class="sv-badge" aria-hidden="true">
+                                <i data-lucide="heart-handshake"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 reveal">
+                        <p class="eyebrow">Our story</p>
+                        <h2 id="story-title">A shop built around <em>shared moments.</em></h2>
+                        <p>
+                            Mithai Tales began with a simple idea: the best sweets are the
+                            ones that bring people closer. A box passed across a table, a
+                            plate offered to a guest, a treat saved for tea time.
+                        </p>
+                        <p>
+                            Today we bring that thinking to every assortment: familiar
+                            recipes, honest flavors and presentation that feels ready to
+                            give.
+                        </p>
+                        <blockquote class="pull-quote">
+                            Every bite tells a sweet story. We simply help you share it.
+                        </blockquote>
+                        <a class="button button-secondary" href="products.html">
+                            Browse the Collection
+                            <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 / 7: Values -->
+        <section class="section-space values surface-alt" aria-labelledby="values-title">
+            <div class="container">
+                <div class="section-heading text-center reveal">
+                    <p class="eyebrow">What guides us</p>
+                    <h2 id="values-title">Four values, <em>one sweet promise.</em></h2>
+                    <p>The simple principles behind every assortment we make.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <article class="value-card reveal">
+                            <span class="value-number" aria-hidden="true">01</span>
+                            <span class="value-icon"><i data-lucide="book-open" aria-hidden="true"></i></span>
+                            <h3>Respect for Recipes</h3>
+                            <p>Traditional methods guide how each sweet is prepared and finished.</p>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <article class="value-card reveal">
+                            <span class="value-number" aria-hidden="true">02</span>
+                            <span class="value-icon"><i data-lucide="leaf" aria-hidden="true"></i></span>
+                            <h3>Honest Ingredients</h3>
+                            <p>Flavors and textures chosen with purpose, never for show.</p>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <article class="value-card reveal">
+                            <span class="value-number" aria-hidden="true">03</span>
+                            <span class="value-icon"><i data-lucide="users" aria-hidden="true"></i></span>
+                            <h3>Warm Hospitality</h3>
+                            <p>Every customer is a guest, and every enquiry gets a personal reply.</p>
+                        </article>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <article class="value-card reveal">
+                            <span class="value-number" aria-hidden="true">04</span>
+                            <span class="value-icon"><i data-lucide="heart-handshake" aria-hidden="true"></i></span>
+                            <h3>Joy of Sharing</h3>
+                            <p>Sweets are best when passed along, so we pack them to be given.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 / 7: Craft journey -->
+        <section class="section-space journey" aria-labelledby="journey-title">
+            <div class="container">
+                <div class="section-heading text-center reveal">
+                    <p class="eyebrow">The craft journey</p>
+                    <h2 id="journey-title">From first stir to <em>final ribbon.</em></h2>
+                    <p>Four careful stages before a box reaches your table.</p>
+                </div>
+
+                <div class="steps">
+                    <span class="step-line" aria-hidden="true"></span>
+
+                    <article class="step reveal">
+                        <span class="step-dot"><i data-lucide="wheat" aria-hidden="true"></i></span>
+                        <h3>Select</h3>
+                        <p>Ingredients are chosen to suit each recipe.</p>
+                    </article>
+                    <article class="step reveal">
+                        <span class="step-dot"><i data-lucide="cooking-pot" aria-hidden="true"></i></span>
+                        <h3>Prepare</h3>
+                        <p>Mixing and cooking follow time-honored methods.</p>
+                    </article>
+                    <article class="step reveal">
+                        <span class="step-dot"><i data-lucide="sparkles" aria-hidden="true"></i></span>
+                        <h3>Finish</h3>
+                        <p>Shape, garnish and finishing touches are added by hand.</p>
+                    </article>
+                    <article class="step reveal">
+                        <span class="step-dot"><i data-lucide="package-check" aria-hidden="true"></i></span>
+                        <h3>Arrange</h3>
+                        <p>Assortments are packed to look as good as they taste.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 / 7: Moments mosaic -->
+        <section class="section-space moments surface-alt" aria-labelledby="moments-title">
+            <div class="container">
+                <div class="section-heading heading-split reveal">
+                    <div>
+                        <p class="eyebrow">Made for moments</p>
+                        <h2 id="moments-title">Wherever there is a table, <em>there is a reason.</em></h2>
+                    </div>
+                    <p>From quiet evenings to grand celebrations.</p>
+                </div>
+
+                <div class="mosaic">
+                    <figure class="tile tile-1 reveal" tabindex="0">
+                        <img src="https://i.pinimg.com/1200x/83/06/8c/83068c7eb3d04bf36e9294e28a2454b9.jpg"
+                            alt="Festive box of sweets and savories" width="3072" height="2048" loading="lazy"
+                            decoding="async">
+                        <figcaption>
+                            <h3>Festivals</h3>
+                            <p>Assortments arranged for the days that matter most.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="tile tile-2 reveal" tabindex="0">
+                        <img src="https://i.pinimg.com/1200x/51/0a/3b/510a3b6548461d0a60e4f127d52d687f.jpg"
+                            alt="Kaju katli for celebrations" width="2000" height="1500" loading="lazy"
+                            decoding="async">
+                        <figcaption>
+                            <h3>Milestones</h3>
+                            <p>Weddings, births and new beginnings.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="tile tile-3 reveal" tabindex="0">
+                        <img src="https://i.pinimg.com/1200x/2b/dd/02/2bdd02e6298550a5e690f6317ea71d29.jpg"
+                            alt="Savory mix for tea time" width="760" height="686" loading="lazy" decoding="async">
+                        <figcaption>
+                            <h3>Tea Time</h3>
+                            <p>Crunchy company for conversation.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="tile tile-4 reveal" tabindex="0">
+                        <img src="https://i.pinimg.com/736x/f5/19/93/f51993812fcd7df0a2accf15371e437e.jpg"
+                            alt="Mysore pak ready to gift" width="4368" height="2912" loading="lazy" decoding="async">
+                        <figcaption>
+                            <h3>Thoughtful Gifts</h3>
+                            <p>A sweet way to say thank you.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 / 7: Visit -->
+        <section class="section-space visit" aria-labelledby="visit-title">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 reveal">
+                        <p class="eyebrow">Visit the shop</p>
+                        <h2 id="visit-title">Come say hello, <em>taste something new.</em></h2>
+                        <p class="visit-intro">
+                            Drop by, ask questions and plan your next box in person.
+                        </p>
+
+                        <!-- EDIT: Replace sample details with confirmed store information. -->
+                        <ul class="visit-list">
+                            <li>
+                                <span class="visit-icon"><i data-lucide="map-pin" aria-hidden="true"></i></span>
+                                <div>
+                                    <h3>Address</h3>
+                                    <p>12 Example Lane, Hyderabad, Telangana 500033</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="visit-icon"><i data-lucide="clock" aria-hidden="true"></i></span>
+                                <div>
+                                    <h3>Opening hours</h3>
+                                    <p>Sample: Daily, 9:00 AM – 9:00 PM</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="visit-icon"><i data-lucide="phone" aria-hidden="true"></i></span>
+                                <div>
+                                    <h3>Call or write</h3>
+                                    <p>+91 00000 00000 · hello@mithaitales.example.com</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6 reveal">
+                        <div class="visit-card">
+                            <span class="pulse" aria-hidden="true"></span>
+                            <svg class="visit-symbol" aria-hidden="true">
+                                <use href="#shop-symbol"></use>
+                            </svg>
+                            <h3>Always a seat at our table.</h3>
+                            <p>Tell us your occasion and we will help you choose the right assortment.</p>
+                            <a class="button button-primary" href="contact.html">
+                                Get in Touch
+                                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 / 7: CTA (split-card layout, different from home) -->
+        <section class="about-cta" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta-split reveal">
+                    <div class="cta-text">
+                        <p class="eyebrow">Let us plan it together</p>
+                        <h2 id="cta-title">Ready to share <em>something sweet?</em></h2>
+                        <p>Choose a favorite, plan a festival order or start a gift box with us.</p>
+                        <div class="button-group">
+                            <a class="button button-primary" href="products.html">
+                                Explore Our Collection
+                                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cta-panel">
+                        <span class="cta-ornament" aria-hidden="true">✦</span>
+                        <a class="cta-row" href="festival-orders.html">
+                            <span><strong>Festival Orders</strong><small>Plan ahead for celebrations</small></span>
+                            <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a class="cta-row" href="services.html">
+                            <span><strong>Gifting Services</strong><small>Boxes, corporate &amp; bulk</small></span>
+                            <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a class="cta-row" href="contact.html">
+                            <span><strong>Talk to the Store</strong><small>Questions answered personally</small></span>
+                            <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+            <svg class="brand-symbol" aria-hidden="true">
+              <use href="#shop-symbol"></use>
+            </svg>
+            <span class="brand-copy">
+              <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+              <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+            </span>
+          </a>
+          <p class="footer-logo-tagline">
+            Handcrafted tradition, festive joy, and everyday sweetness in every bite.
+          </p>
+          <p>
+            Traditional sweets, savory moments and thoughtful gifts.
+            Made for the joy of sharing.
+          </p>
+
+          <!-- EDIT: Replace example.com URLs with your verified social profiles. -->
+          <div class="social-links" aria-label="Social profiles">
+            <a href="https://example.com/replace-instagram"
+               aria-label="Instagram — replace with your profile">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-facebook"
+               aria-label="Facebook — replace with your profile">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-youtube"
+               aria-label="YouTube — replace with your channel">
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-whatsapp"
+               aria-label="WhatsApp — replace with your business link">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer quick links">
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="festival-orders.html">Festival Orders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Product categories">
+          <h2 class="footer-title">Categories</h2>
+          <ul class="footer-links">
+            <li><a href="products.html?category=sweets">Sweets</a></li>
+            <li><a href="products.html?category=savories">Savories</a></li>
+            <li><a href="products.html?category=dry-fruits">Dry Fruits</a></li>
+            <li><a href="products.html?category=gift-boxes">Gift Boxes</a></li>
+            <li><a href="products.html?category=corporate-gifts">Corporate Gifts</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><a href="contact.html?topic=ordering">Ordering enquiries</a></li>
+          </ul>
+          <div class="footer-contact-list" aria-label="Store contact details">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill"></i>
+              </span>
+              <span class="contact-detail">12 Example Lane, Hyderabad, Telangana 500033</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-telephone-fill"></i>
+              </span>
+              <span class="contact-detail">+91 00000 00000</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-envelope-fill"></i>
+              </span>
+              <span class="contact-detail">hello@mithaitales.example.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-promo">
+          <h2 class="footer-title">A Sweet Celebration</h2>
+          <p>Make your next gathering memorable with sweets and thoughtful gift boxes.</p>
+          <a class="button button-primary" href="festival-orders.html">
+            Explore Festival Orders
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year">2026</span> Mithai Tales. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

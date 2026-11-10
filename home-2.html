@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#7A2435">
+    <meta name="description"
+        content="A premium take on traditional Indian sweets, savories, dry fruits and festive gift boxes.">
+    <title>Sweet Shop Premium | Signature Sweets & Festive Gifting</title>
+
+    <link rel="icon" type="image/png" href="mithai-logo.png">
+
+    <script>
+        (() => {
+            try {
+                const theme = localStorage.getItem("sweetshop-theme");
+                const direction = localStorage.getItem("sweetshop-direction");
+                document.documentElement.dataset.theme =
+                    theme === "dark" || theme === "light"
+                        ? theme
+                        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                document.documentElement.dir = direction === "rtl" ? "rtl" : "ltr";
+            } catch (_) { }
+        })();
+    </script>
+
+    <link id="bootstrap-ltr" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link id="bootstrap-rtl" rel="stylesheet" disabled
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <script>
+        if (document.documentElement.dir === "rtl") {
+            document.getElementById("bootstrap-ltr").disabled = true;
+            document.getElementById("bootstrap-rtl").disabled = false;
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="home-2.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script defer src="home-2.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <symbol id="shop-symbol" viewBox="0 0 64 64">
+            <image href="mithai-logo.png" width="64" height="64"/>
+        </symbol>
+    </svg>
+
+    <header class="site-header" id="site-header">
+    <div class="container header-shell">
+      <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+        <svg class="brand-symbol" aria-hidden="true">
+          <use href="#shop-symbol"></use>
+        </svg>
+        <span class="brand-copy">
+          <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+          <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+        </span>
+      </a>
+
+      <button class="icon-button mobile-menu-toggle" id="mobile-menu-toggle"
+              type="button" aria-expanded="false" aria-controls="header-panel"
+              aria-label="Open navigation" hidden>
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+
+      <div class="header-panel" id="header-panel">
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="home-dropdown">
+              <button class="nav-link home-trigger active" id="home-trigger"
+                      type="button" aria-expanded="true"
+                      aria-controls="home-options">
+                Home
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <ul class="home-options" id="home-options">
+                <li>
+                  <a href="index.html">
+                    Home 1 — Classic
+                  </a>
+                </li>
+                <li>
+                  <a href="home-2.html" aria-current="page">
+                    <span>Home 2 — Premium</span>
+                    <span class="premium-badge">Premium</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="about.html">About Us</a></li>
+            <li><a class="nav-link" href="products.html">Products</a></li>
+            <li><a class="nav-link" href="services.html">Services</a></li>
+            <li><a class="nav-link" href="festival-orders.html">Festival Orders</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="icon-button" id="theme-toggle" type="button"
+                  aria-label="Switch to dark mode" aria-pressed="false" hidden>
+            <i data-lucide="moon" aria-hidden="true"></i>
+          </button>
+          <button class="icon-button direction-button" id="direction-toggle"
+                  type="button" aria-label="Switch to right-to-left layout"
+                  aria-pressed="false" hidden>
+            <i data-lucide="arrow-right-left" aria-hidden="true"></i>
+          </button>
+          <a class="button button-primary login-button" href="order.html">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <main id="main-content" tabindex="-1">
+
+        <!-- SECTION 1 / 8: Hero -->
+        <section class="h2-hero" id="h2-hero" aria-labelledby="h2-hero-title">
+            <span class="h2-hero-glow" aria-hidden="true"></span>
+            <div class="container h2-hero-inner">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 h2-hero-copy">
+                        <p class="h2-eyebrow-light">
+                            The Signature Collection
+                        </p>
+                        <h1 id="h2-hero-title">Mithai, <em>elevated</em> for the moments that matter.</h1>
+                        <p class="h2-hero-text">
+                            Heirloom recipes, refined presentation and gifts worth unwrapping slowly.
+                            A more luxurious way to share something familiar.
+                        </p>
+                        <div class="button-group">
+                            <a class="button button-primary" href="products.html">
+                                Explore Products
+                                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                            <a class="button button-secondary" href="festival-orders.html">Discover Festival Orders</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 h2-hero-stage" aria-hidden="false">
+                        <div class="h2-ring" data-depth="10" aria-hidden="true"></div>
+                        <figure class="h2-hero-main" data-depth="18">
+                            <img src="https://plannersy.com/wp-content/uploads/2025/05/soan-papdi.webp"
+                                alt="Orange motichoor laddus arranged for sharing" width="1500" height="1125"
+                                loading="eager" fetchpriority="high" decoding="async">
+                        </figure>
+                        <figure class="h2-hero-float h2-float-a" data-depth="34">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Kaju_katli_sweet.jpg"
+                                alt="Silver-topped kaju katli diamonds" width="2000" height="1500" loading="eager"
+                                decoding="async">
+                        </figure>
+                        <figure class="h2-hero-float h2-float-b" data-depth="26">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Bombaymix.jpg"
+                                alt="Crunchy savory mixture in a bowl" width="760" height="686" loading="eager"
+                                decoding="async">
+                        </figure>
+                        <span class="h2-hero-badge" data-depth="14">
+                            <span class="small-label">Handcrafted</span>
+                            <span>Tradition, refined</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2 / 8: Collections (expanding panels) -->
+        <section class="section-space h2-collections" id="h2-collections" aria-labelledby="h2-col-title">
+            <div class="container">
+                <div class="h2-head reveal">
+                    <p class="eyebrow">Curated collections</p>
+                    <h2 id="h2-col-title">Choose your <em>chapter.</em></h2>
+                    <p>Hover or tap a collection to open it.</p>
+                </div>
+
+                <div class="h2-panels reveal" id="h2-panels">
+                    <a class="h2-panel is-active" href="products.html?category=sweets">
+                        <img src="https://thumbs.dreamstime.com/b/vibrant-colorful-array-traditional-indian-sweets-including-rasgulla-gulab-jamun-barfi-laddu-arranged-neatly-display-433004581.jpg?w=992"
+                            alt="Kaju katli with a delicate silver finish" width="2000" height="1500" loading="lazy"
+                            decoding="async">
+                        <span class="h2-panel-body">
+                            <span class="item-number" aria-hidden="true">01</span>
+                            <strong>Sweets</strong>
+                            <span class="h2-panel-desc">Classic mithai for little joys and joyful gatherings.</span>
+                            <span class="h2-panel-link">Explore Sweets <i class="directional-icon"
+                                    data-lucide="arrow-right" aria-hidden="true"></i></span>
+                        </span>
+                    </a>
+                    <a class="h2-panel" href="products.html?category=savories">
+                        <img src="https://i.pinimg.com/originals/a0/bb/87/a0bb87086636909d6ec555a6cdaa7e51.jpg"
+                            alt="A bowl of crunchy savory mixture" width="760" height="686" loading="lazy"
+                            decoding="async">
+                        <span class="h2-panel-body">
+                            <span class="item-number" aria-hidden="true">02</span>
+                            <strong>Savories</strong>
+                            <span class="h2-panel-desc">Crunchy companions for tea breaks and shared
+                                conversations.</span>
+                            <span class="h2-panel-link">Explore Savories <i class="directional-icon"
+                                    data-lucide="arrow-right" aria-hidden="true"></i></span>
+                        </span>
+                    </a>
+                    <a class="h2-panel" href="products.html?category=dry-fruits">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/MixedNuts.JPG"
+                            alt="An assortment of shelled nuts in a bowl" width="653" height="490" loading="lazy"
+                            decoding="async">
+                        <span class="h2-panel-body">
+                            <span class="item-number" aria-hidden="true">03</span>
+                            <strong>Dry Fruits</strong>
+                            <span class="h2-panel-desc">Nutty textures to enjoy by the handful or add to a gift.</span>
+                            <span class="h2-panel-link">Explore Dry Fruits <i class="directional-icon"
+                                    data-lucide="arrow-right" aria-hidden="true"></i></span>
+                        </span>
+                    </a>
+                    <a class="h2-panel" href="products.html?category=gift-boxes">
+                        <img src="https://assets.isu.pub/document-structure/230601092922-72886d08276ffeb308b4dd9bcc0b9ab4/v1/7ecf35b3fc9f72c4f066c4532a4ae38b.jpeg"
+                            alt="An open box with Mysore pak and thattai" width="3072" height="2048" loading="lazy"
+                            decoding="async">
+                        <span class="h2-panel-body">
+                            <span class="item-number" aria-hidden="true">04</span>
+                            <strong>Gift Boxes</strong>
+                            <span class="h2-panel-desc">Sweet and savory selections for thoughtful gestures.</span>
+                            <span class="h2-panel-link">Explore Gift Boxes <i class="directional-icon"
+                                    data-lucide="arrow-right" aria-hidden="true"></i></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 / 8: Signature bento -->
+        <section class="section-space h2-bento-section surface-alt" aria-labelledby="h2-bento-title">
+            <div class="container">
+                <div class="h2-head h2-head-left reveal">
+                    <p class="eyebrow">Signature selection</p>
+                    <h2 id="h2-bento-title">Four icons. <em>One table.</em></h2>
+                </div>
+
+                <!-- Sample pack sizes: replace with confirmed catalog information. -->
+                <div class="h2-bento">
+                    <a class="h2-tile h2-tile-xl reveal" href="products/kaju-katli.html"
+                        aria-label="View Product: Kaju Katli">
+                        <img src="https://dadus.co.in/cdn/shop/files/1_63e56957-ac6d-46a4-8e1b-d0fa95a7ddff.png?v=1706615566&width=1000"
+                            alt="Kaju katli cut into diamond shapes" width="2000" height="1500" loading="lazy"
+                            decoding="async">
+                        <span class="h2-tile-info">
+                            <span class="h2-tile-cat">Cashew classic</span>
+                            <strong>Kaju Katli</strong>
+                            <span class="h2-tile-more">Delicate cashew sweetness with a smooth, tender
+                                bite.<br><em>Sample pack · 250 g</em></span>
+                        </span>
+                    </a>
+                    <a class="h2-tile h2-tile-wide reveal" href="products/motichoor-laddu.html"
+                        aria-label="View Product: Motichoor Laddu" data-delay="80">
+                        <img src="https://i.pinimg.com/1200x/b9/a9/9d/b9a99daf80bfd2330d3c5e8be79472b0.jpg"
+                            alt="Round motichoor laddus" width="1500" height="1125" loading="lazy" decoding="async">
+                        <span class="h2-tile-info">
+                            <span class="h2-tile-cat">Celebration favorite</span>
+                            <strong>Motichoor Laddu</strong>
+                            <span class="h2-tile-more">Fine boondi pearls in a festive classic.<br><em>Sample pack · 500
+                                    g</em></span>
+                        </span>
+                    </a>
+                    <a class="h2-tile reveal" href="products/mysore-pak.html" aria-label="View Product: Mysore Pak"
+                        data-delay="160">
+                        <img src="https://i.pinimg.com/1200x/76/5a/9a/765a9af74249b606eb62092ae4fe6fca.jpg"
+                            alt="Rectangular pieces of Mysore pak on a banana leaf" width="4368" height="2912"
+                            loading="lazy" decoding="async">
+                        <span class="h2-tile-info">
+                            <span class="h2-tile-cat">Southern tradition</span>
+                            <strong>Mysore Pak</strong>
+                            <span class="h2-tile-more">Rich, crumbly gram-flour sweet.<br><em>Sample pack · 250
+                                    g</em></span>
+                        </span>
+                    </a>
+                    <a class="h2-tile reveal" href="products/traditional-savory-mix.html"
+                        aria-label="View Product: Traditional Savory Mix" data-delay="240">
+                        <img src="https://i.pinimg.com/1200x/5b/21/0d/5b210da00d0f3d5a84e018cb2b4804e0.jpg"
+                            alt="Savory mix with sev, nuts and crunchy pieces" width="760" height="686" loading="lazy"
+                            decoding="async">
+                        <span class="h2-tile-info">
+                            <span class="h2-tile-cat">Tea-time companion</span>
+                            <strong>Savory Mix</strong>
+                            <span class="h2-tile-more">Crisp textures and savory seasoning.<br><em>Sample pack · 200
+                                    g</em></span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="section-action text-center reveal">
+                    <a class="button button-primary" href="products.html">
+                        View All Products
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 / 8: Craft timeline -->
+        <section class="section-space h2-craft" aria-labelledby="h2-craft-title">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <div class="h2-craft-sticky reveal">
+                            <p class="eyebrow">Our story &amp; craft</p>
+                            <h2 id="h2-craft-title">Made slowly. <em>Shared generously.</em></h2>
+                            <p>Traditional recipes guide every collection, from the first ingredient to the final
+                                ribbon.</p>
+                            <figure class="h2-craft-photo">
+                                <img src="https://i.pinimg.com/1200x/ce/2c/cd/ce2ccd65c390deca07c6a2b3fc8426d1.jpg"
+                                    alt="Mysore pak pieces served on a banana leaf" width="4368" height="2912"
+                                    loading="lazy" decoding="async">
+                            </figure>
+                            <a class="button button-secondary" href="about.html">
+                                About Us
+                                <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <ol class="h2-steps">
+                            <li class="h2-step reveal">
+                                <span class="h2-step-no" aria-hidden="true">01</span>
+                                <div>
+                                    <h3>Ingredients with purpose</h3>
+                                    <p>Flavors and textures chosen to suit each recipe.</p>
+                                </div>
+                            </li>
+                            <li class="h2-step reveal">
+                                <span class="h2-step-no" aria-hidden="true">02</span>
+                                <div>
+                                    <h3>Attention to preparation</h3>
+                                    <p>Care at the mixing, cooking and finishing stages.</p>
+                                </div>
+                            </li>
+                            <li class="h2-step reveal">
+                                <span class="h2-step-no" aria-hidden="true">03</span>
+                                <div>
+                                    <h3>Considered presentation</h3>
+                                    <p>Thoughtful arrangements that feel ready to share.</p>
+                                </div>
+                            </li>
+                            <li class="h2-step reveal">
+                                <span class="h2-step-no" aria-hidden="true">04</span>
+                                <div>
+                                    <h3>Made to be shared</h3>
+                                    <p>Boxes and assortments for family tables and thoughtful visits.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 / 8: Gifting tabs -->
+        <section class="section-space h2-gifting surface-alt" aria-labelledby="h2-gift-title">
+            <div class="container">
+                <div class="h2-head reveal">
+                    <p class="eyebrow">Thoughtful gestures</p>
+                    <h2 id="h2-gift-title">A gift for <em>every occasion.</em></h2>
+                </div>
+
+                <div class="h2-tabs reveal">
+                    <div class="h2-tablist" role="tablist" aria-label="Gifting occasions">
+                        <button class="h2-tab is-active" role="tab" id="tab-1" aria-selected="true"
+                            aria-controls="panel-1" type="button">
+                            <i data-lucide="gift" aria-hidden="true"></i> Celebration Boxes
+                        </button>
+                        <button class="h2-tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2"
+                            tabindex="-1" type="button">
+                            <i data-lucide="briefcase-business" aria-hidden="true"></i> Corporate Gifting
+                        </button>
+                        <button class="h2-tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3"
+                            tabindex="-1" type="button">
+                            <i data-lucide="boxes" aria-hidden="true"></i> Bulk Orders
+                        </button>
+                    </div>
+
+                    <div class="h2-tabpanels">
+                        <div class="h2-tabpanel is-active" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+                            <img src="https://i.pinimg.com/1200x/49/d8/5b/49d85b9b3b75c9dc5700a9e6408abe7b.jpg"
+                                alt="Gift box with Mysore pak and thattai" width="3072" height="2048" loading="lazy"
+                                decoding="async">
+                            <div class="h2-tabcopy">
+                                <h3>Celebration Gift Boxes</h3>
+                                <p>Discuss an assortment for birthdays, weddings, housewarmings or a thoughtful
+                                    thank-you.</p>
+                                <span class="service-detail">Selections · Box formats · Occasion notes</span>
+                                <a class="button button-secondary" href="services.html">Explore Services</a>
+                            </div>
+                        </div>
+                        <div class="h2-tabpanel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Kaju_katli_sweet.jpg"
+                                alt="Kaju katli arranged for gifting" width="2000" height="1500" loading="lazy"
+                                decoding="async">
+                            <div class="h2-tabcopy">
+                                <h3>Corporate Gifting</h3>
+                                <p>Plan gifts for colleagues, clients and teams with a consistent selection and
+                                    presentation.</p>
+                                <span class="service-detail">Gift quantities · Presentation · Budget discussion</span>
+                                <a class="button button-secondary" href="services.html">Explore Services</a>
+                            </div>
+                        </div>
+                        <div class="h2-tabpanel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Motichur_Laddu_%281%29.jpg"
+                                alt="Motichoor laddus for sharing" width="1500" height="1125" loading="lazy"
+                                decoding="async">
+                            <div class="h2-tabcopy">
+                                <h3>Bulk Sweet &amp; Savory Orders</h3>
+                                <p>Share your event size and preferences to discuss suitable combinations and packing
+                                    quantities.</p>
+                                <span class="service-detail">Event planning · Pack sizes · Product combinations</span>
+                                <a class="button button-secondary" href="services.html">Explore Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 / 8: Festival parallax banner -->
+        <section class="h2-festival" aria-labelledby="h2-fest-title">
+            <img class="h2-fest-bg" id="h2-fest-bg"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Box_with_savories_and_sweets_on_a_plain_background.jpg"
+                alt="" width="3072" height="2048" loading="lazy" decoding="async">
+            <span class="h2-fest-shade" aria-hidden="true"></span>
+            <div class="container">
+                <div class="h2-fest-card reveal">
+                    <p class="h2-eyebrow-light">Bring a little celebration home</p>
+                    <h2 id="h2-fest-title">Good wishes. <em>Beautifully shared.</em></h2>
+                    <p>
+                        Explore selection and presentation options, then discuss your quantities and
+                        preferred date in advance. Availability and arrangements are confirmed with the store.
+                    </p>
+                    <a class="button button-primary" href="festival-orders.html">
+                        Explore Festival Orders
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="h2-marquee" aria-hidden="true">
+                <div class="h2-marquee-track">
+                    <span>Festivals ✦ Weddings ✦ Housewarmings ✦ Birthdays ✦ Thank-yous ✦ Family Gatherings ✦ </span>
+                    <span>Festivals ✦ Weddings ✦ Housewarmings ✦ Birthdays ✦ Thank-yous ✦ Family Gatherings ✦ </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 / 8: FAQ -->
+        <section class="section-space h2-faq" aria-labelledby="h2-faq-title">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="h2-faq-side reveal">
+                            <span class="h2-faq-mark" aria-hidden="true">?</span>
+                            <p class="eyebrow">A little help choosing</p>
+                            <h2 id="h2-faq-title">Good questions. <em>Simple answers.</em></h2>
+                            <p>Start here, or visit our Contact page for details about your order.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="h2-faq-list">
+                            <details class="h2-faq-item reveal" open>
+                                <summary><span class="h2-faq-no">01</span> What can I find in your collection?<i
+                                        data-lucide="plus" aria-hidden="true"></i></summary>
+                                <div class="h2-faq-answer">
+                                    <p>Explore Sweets, Savories, Dry Fruits and Gift Boxes. Individual product pages
+                                        provide the details for each selection and available pack options.</p>
+                                </div>
+                            </details>
+                            <details class="h2-faq-item reveal">
+                                <summary><span class="h2-faq-no">02</span> Can I customize a gift box?<i
+                                        data-lucide="plus" aria-hidden="true"></i></summary>
+                                <div class="h2-faq-answer">
+                                    <p>Share your preferred products, occasion, quantity and presentation ideas through
+                                        the <a href="contact.html?topic=gift-customization">Contact page</a>. The store
+                                        can confirm which combinations and customization options are available.</p>
+                                </div>
+                            </details>
+                            <details class="h2-faq-item reveal">
+                                <summary><span class="h2-faq-no">03</span> How should I plan a festival order?<i
+                                        data-lucide="plus" aria-hidden="true"></i></summary>
+                                <div class="h2-faq-answer">
+                                    <p>Visit <a href="festival-orders.html">Festival Orders</a> for inspiration, then
+                                        enquire in advance with your preferred date, assortment and quantity. Confirm
+                                        availability and arrangements before finalizing your plans.</p>
+                                </div>
+                            </details>
+                            <details class="h2-faq-item reveal">
+                                <summary><span class="h2-faq-no">04</span> Where can I find storage and ingredient
+                                    information?<i data-lucide="plus" aria-hidden="true"></i></summary>
+                                <div class="h2-faq-answer">
+                                    <p>Follow the product label and product-specific information for ingredients,
+                                        allergens, storage and best-before guidance. If anything is unclear, ask through
+                                        the <a href="contact.html?topic=product-information">Contact page</a> before
+                                        purchasing or consuming.</p>
+                                </div>
+                            </details>
+                            <details class="h2-faq-item reveal">
+                                <summary><span class="h2-faq-no">05</span> Who should I contact about a bulk order?<i
+                                        data-lucide="plus" aria-hidden="true"></i></summary>
+                                <div class="h2-faq-answer">
+                                    <p>Use the <a href="contact.html?topic=bulk-orders">Contact page</a> and include
+                                        your event date, estimated quantity, product preferences and packing
+                                        requirements. The store will need to confirm the available options.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8 / 8: Final CTA -->
+        <section class="final-cta h2-final-cta" aria-labelledby="final-title">
+            <div class="container">
+                <div class="h2-final-card reveal">
+                    <div class="h2-final-copy">
+                        <p class="h2-final-eyebrow">For moments worth sharing</p>
+                        <h2 id="final-title">Make your next celebration <em>memorable.</em></h2>
+                        <p>Discover refined sweets and thoughtful gifts, beautifully chosen for the people you love.</p>
+                    </div>
+                    <a class="button button-primary" href="festival-orders.html">
+                        Plan a Celebration
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <span class="h2-final-ornament" aria-hidden="true">✦</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+            <svg class="brand-symbol" aria-hidden="true">
+              <use href="#shop-symbol"></use>
+            </svg>
+            <span class="brand-copy">
+              <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+              <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+            </span>
+          </a>
+          <p class="footer-logo-tagline">
+            Handcrafted tradition, festive joy, and everyday sweetness in every bite.
+          </p>
+          <p>
+            Traditional sweets, savory moments and thoughtful gifts.
+            Made for the joy of sharing.
+          </p>
+
+          <!-- EDIT: Replace example.com URLs with your verified social profiles. -->
+          <div class="social-links" aria-label="Social profiles">
+            <a href="https://example.com/replace-instagram"
+               aria-label="Instagram — replace with your profile">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-facebook"
+               aria-label="Facebook — replace with your profile">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-youtube"
+               aria-label="YouTube — replace with your channel">
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-whatsapp"
+               aria-label="WhatsApp — replace with your business link">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer quick links">
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="festival-orders.html">Festival Orders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Product categories">
+          <h2 class="footer-title">Categories</h2>
+          <ul class="footer-links">
+            <li><a href="products.html?category=sweets">Sweets</a></li>
+            <li><a href="products.html?category=savories">Savories</a></li>
+            <li><a href="products.html?category=dry-fruits">Dry Fruits</a></li>
+            <li><a href="products.html?category=gift-boxes">Gift Boxes</a></li>
+            <li><a href="products.html?category=corporate-gifts">Corporate Gifts</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><a href="contact.html?topic=ordering">Ordering enquiries</a></li>
+          </ul>
+          <div class="footer-contact-list" aria-label="Store contact details">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill"></i>
+              </span>
+              <span class="contact-detail">12 Example Lane, Hyderabad, Telangana 500033</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-telephone-fill"></i>
+              </span>
+              <span class="contact-detail">+91 00000 00000</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-envelope-fill"></i>
+              </span>
+              <span class="contact-detail">hello@mithaitales.example.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-promo">
+          <h2 class="footer-title">A Sweet Celebration</h2>
+          <p>Make your next gathering memorable with sweets and thoughtful gift boxes.</p>
+          <a class="button button-primary" href="festival-orders.html">
+            Explore Festival Orders
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year">2026</span> Mithai Tales. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

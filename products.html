@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#7A2435">
+  <meta name="description"
+        content="Browse sweets, savories, dry fruits and gift boxes from Mithai Tales. Traditional favorites, packed for sharing and gifting.">
+  <title>Products | Mithai Tales — Sweets, Savories, Dry Fruits & Gift Boxes</title>
+
+  <link rel="icon" type="image/png" href="mithai-logo.png">
+
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem("sweetshop-theme");
+        const direction = localStorage.getItem("sweetshop-direction");
+        document.documentElement.dataset.theme =
+          theme === "dark" || theme === "light"
+            ? theme
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark" : "light";
+        document.documentElement.dir = direction === "rtl" ? "rtl" : "ltr";
+      } catch (_) {}
+    })();
+  </script>
+
+  <link id="bootstrap-ltr" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link id="bootstrap-rtl" rel="stylesheet" disabled
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+
+  <script>
+    if (document.documentElement.dir === "rtl") {
+      document.getElementById("bootstrap-ltr").disabled = true;
+      document.getElementById("bootstrap-rtl").disabled = false;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link rel="preconnect" href="https://commons.wikimedia.org">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="products.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer src="index.js"></script>
+  <script defer src="products.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true" focusable="false">
+    <symbol id="shop-symbol" viewBox="0 0 64 64">
+      <image href="mithai-logo.png" width="64" height="64"/>
+    </symbol>
+  </svg>
+
+  <!-- HEADER: identical to home. Only the active link changes. -->
+  <header class="site-header" id="site-header">
+    <div class="container header-shell">
+      <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+        <svg class="brand-symbol" aria-hidden="true">
+          <use href="#shop-symbol"></use>
+        </svg>
+        <span class="brand-copy">
+          <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+          <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+        </span>
+      </a>
+
+      <button class="icon-button mobile-menu-toggle" id="mobile-menu-toggle"
+              type="button" aria-expanded="false" aria-controls="header-panel"
+              aria-label="Open navigation" hidden>
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+
+      <div class="header-panel" id="header-panel">
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="home-dropdown">
+              <button class="nav-link home-trigger" id="home-trigger"
+                      type="button" aria-expanded="true"
+                      aria-controls="home-options">
+                Home
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <ul class="home-options" id="home-options">
+                <li>
+                  <a href="index.html">
+                    Home 1 — Classic
+                  </a>
+                </li>
+                <li>
+                  <a href="home-2.html">
+                    <span>Home 2 — Premium</span>
+                    <span class="premium-badge">Premium</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="about.html">About Us</a></li>
+            <li><a class="nav-link active" href="products.html" aria-current="page">Products</a></li>
+            <li><a class="nav-link" href="services.html">Services</a></li>
+            <li><a class="nav-link" href="festival-orders.html">Festival Orders</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="icon-button" id="theme-toggle" type="button"
+                  aria-label="Switch to dark mode" aria-pressed="false" hidden>
+            <i data-lucide="moon" aria-hidden="true"></i>
+          </button>
+          <button class="icon-button direction-button" id="direction-toggle"
+                  type="button" aria-label="Switch to right-to-left layout"
+                  aria-pressed="false" hidden>
+            <i data-lucide="arrow-right-left" aria-hidden="true"></i>
+          </button>
+          <a class="button button-primary login-button" href="order.html">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- SECTION 1 / 7: Full-screen cinematic hero -->
+    <section class="pr-hero" aria-labelledby="pr-hero-title">
+      <div class="pr-hero-bg" aria-hidden="true">
+        <img
+          src="https://www.vikhrolicucina.com/uploads/stories/1662465216_groupindianassortedsweetsmithaiwithdiya.jpg"
+          alt="" width="1920" height="1280"
+          loading="eager" fetchpriority="high" decoding="async">
+      </div>
+      <div class="pr-hero-overlay" aria-hidden="true"></div>
+      <span class="pr-orb pr-orb-1" aria-hidden="true"></span>
+      <span class="pr-orb pr-orb-2" aria-hidden="true"></span>
+
+      <div class="container pr-hero-inner">
+        <p class="pr-eyebrow pr-in" style="--d:0">
+          <span class="pr-line" aria-hidden="true"></span>
+          The complete collection
+        </p>
+        <h1 id="pr-hero-title" class="pr-in" style="--d:1">
+          Every craving,<br><em>beautifully boxed.</em>
+        </h1>
+        <p class="pr-hero-text pr-in" style="--d:2">
+          Sweets, crunchy savories, dry fruits and gift boxes. Four
+          collections, one table, and plenty of reasons to share.
+        </p>
+        <div class="button-group pr-in" style="--d:3">
+          <a class="button button-primary" href="#categories">
+            Explore Categories
+            <i class="directional-icon" data-lucide="arrow-down" aria-hidden="true"></i>
+          </a>
+          <a class="button button-secondary" href="festival-orders.html">
+            Festival Orders
+          </a>
+        </div>
+      </div>
+
+      <!-- Floating quick-jump glass panel -->
+      <nav class="pr-hero-jump pr-in" style="--d:4" aria-label="Jump to a category">
+        <span class="pr-jump-title">Jump to</span>
+        <a href="#sweets">Sweets <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        <a href="#savories">Savories <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        <a href="#dry-fruits">Dry Fruits <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        <a href="#gift-boxes">Gift Boxes <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      </nav>
+
+      <div class="pr-hero-bar">
+        <div class="container pr-hero-bar-inner">
+          <ul class="pr-stats">
+            <li><strong data-count="4">4</strong><span>Categories</span></li>
+            <li><strong data-count="17">17</strong><span>Signature items</span></li>
+            <li><strong data-count="3">3</strong><span>Gift box styles</span></li>
+          </ul>
+          <p class="pr-demo-note">✦ Sample products and prices</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 / 7: Marquee + category tiles -->
+    <section class="section-space pr-cats" id="categories" aria-labelledby="pr-cats-title">
+      <div class="pr-marquee" aria-hidden="true">
+        <div class="pr-marquee-track">
+          <span>Sweets ✦ Savories ✦ Dry Fruits ✦ Gift Boxes ✦ </span>
+          <span>Sweets ✦ Savories ✦ Dry Fruits ✦ Gift Boxes ✦ </span>
+          <span>Sweets ✦ Savories ✦ Dry Fruits ✦ Gift Boxes ✦ </span>
+          <span>Sweets ✦ Savories ✦ Dry Fruits ✦ Gift Boxes ✦ </span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="section-heading heading-split reveal">
+          <div>
+            <p class="eyebrow">Shop by category</p>
+            <h2 id="pr-cats-title">Four ways to fill the table.</h2>
+          </div>
+          <p>Choose a category<br>and jump straight in.</p>
+        </div>
+
+        <div class="row g-4" data-stagger>
+          <div class="col-sm-6 col-xl-3 pr-st">
+            <a class="pr-tile" href="#sweets">
+              <span class="pr-tile-icon"><i data-lucide="candy" aria-hidden="true"></i></span>
+              <h3>Sweets</h3>
+              <p>Classic mithai for little joys and big gatherings.</p>
+              <span class="pr-tile-meta">4 products
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <div class="col-sm-6 col-xl-3 pr-st">
+            <a class="pr-tile" href="#savories">
+              <span class="pr-tile-icon"><i data-lucide="cookie" aria-hidden="true"></i></span>
+              <h3>Savories</h3>
+              <p>Crunchy companions for tea breaks and conversations.</p>
+              <span class="pr-tile-meta">5 products
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <div class="col-sm-6 col-xl-3 pr-st">
+            <a class="pr-tile" href="#dry-fruits">
+              <span class="pr-tile-icon"><i data-lucide="nut" aria-hidden="true"></i></span>
+              <h3>Dry Fruits</h3>
+              <p>Nutty textures by the handful, or tucked into a gift.</p>
+              <span class="pr-tile-meta">5 products
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <div class="col-sm-6 col-xl-3 pr-st">
+            <a class="pr-tile" href="#gift-boxes">
+              <span class="pr-tile-icon"><i data-lucide="gift" aria-hidden="true"></i></span>
+              <h3>Gift Boxes</h3>
+              <p>Ready-to-give selections for thoughtful gestures.</p>
+              <span class="pr-tile-meta">3 products
+                <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 / 7: Sweets (sticky story panel + 2x2 grid) -->
+    <section class="section-space surface-alt pr-sweets" id="sweets" aria-labelledby="sweets-title" data-category>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <div class="pr-sticky reveal">
+              <p class="eyebrow">Sweets</p>
+              <h2 id="sweets-title">Sweet, <em>syrupy</em> and made for sharing.</h2>
+              <p class="pr-lead">
+                Soft, golden and soaked in tradition, these are the sweets
+                that turn a visit into a celebration.
+              </p>
+              <figure class="pr-arch">
+                <img
+                  src="https://commons.wikimedia.org/wiki/Special:FilePath/Two_Gulab_Jamun_in_a_plate_01.jpg?width=900"
+                  alt="Two gulab jamun served on a plate"
+                  width="900" height="675" loading="lazy" decoding="async">
+              </figure>
+              <a class="text-link" href="#savories">
+                Next: Savories
+                <i class="directional-icon" data-lucide="arrow-down" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="row g-4" data-stagger>
+              <div class="col-sm-6 pr-st">
+                <article class="pr-card">
+                  <div class="pr-card-img">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab_Jamun_Delhi.JPG?width=700"
+                         data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab_jamuns_at_an_Indian_Party.jpg?width=700"
+                         alt="Gulab jamun finished with silver leaf"
+                         width="700" height="525" loading="lazy" decoding="async">
+                  </div>
+                  <div class="pr-card-body">
+                    <p class="product-category">Milk classic</p>
+                    <h3>Gulab Jamun</h3>
+                    <p>Soft, golden dumplings soaked in fragrant syrup.</p>
+                    <div class="pr-card-foot">
+                      <span class="pr-price">₹320 <small>/ 500 g</small></span>
+                      <a class="pr-enquire" href="contact.html?topic=ordering&product=gulab-jamun"
+                         aria-label="Enquire about Gulab Jamun">Enquire
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-sm-6 pr-st">
+                <article class="pr-card">
+                  <div class="pr-card-img">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jalebi.jpg?width=700"
+                         data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab_jamuns_at_an_Indian_Party.jpg?width=700"
+                         alt="Crisp orange jalebi spirals"
+                         width="700" height="525" loading="lazy" decoding="async">
+                  </div>
+                  <div class="pr-card-body">
+                    <p class="product-category">Crisp &amp; syrupy</p>
+                    <h3>Jalebi</h3>
+                    <p>Golden spirals with a crisp bite and a sweet finish.</p>
+                    <div class="pr-card-foot">
+                      <span class="pr-price">₹240 <small>/ 250 g</small></span>
+                      <a class="pr-enquire" href="contact.html?topic=ordering&product=jalebi"
+                         aria-label="Enquire about Jalebi">Enquire
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-sm-6 pr-st">
+                <article class="pr-card">
+                  <div class="pr-card-img">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rasgulla.jpg?width=700"
+                         data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab_jamuns_at_an_Indian_Party.jpg?width=700"
+                         alt="Soft white rasgulla in syrup"
+                         width="700" height="525" loading="lazy" decoding="async">
+                  </div>
+                  <div class="pr-card-body">
+                    <p class="product-category">Light &amp; spongy</p>
+                    <h3>Rasgulla</h3>
+                    <p>Airy, spongy rounds in a gentle, chilled syrup.</p>
+                    <div class="pr-card-foot">
+                      <span class="pr-price">₹280 <small>/ 500 g</small></span>
+                      <a class="pr-enquire" href="contact.html?topic=ordering&product=rasgulla"
+                         aria-label="Enquire about Rasgulla">Enquire
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-sm-6 pr-st">
+                <article class="pr-card">
+                  <div class="pr-card-img">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soan_Papdi.jpg?width=700"
+                         data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab_jamuns_at_an_Indian_Party.jpg?width=700"
+                         alt="Flaky soan papdi cubes"
+                         width="700" height="525" loading="lazy" decoding="async">
+                    <span class="pr-badge">New</span>
+                  </div>
+                  <div class="pr-card-body">
+                    <p class="product-category">Flaky &amp; melting</p>
+                    <h3>Soan Papdi</h3>
+                    <p>Fine, flaky strands that melt the moment they arrive.</p>
+                    <div class="pr-card-foot">
+                      <span class="pr-price">₹210 <small>/ 250 g</small></span>
+                      <a class="pr-enquire" href="contact.html?topic=ordering&product=soan-papdi"
+                         aria-label="Enquire about Soan Papdi">Enquire
+                        <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 / 7: Savories (draggable scroll-snap carousel) -->
+    <section class="section-space pr-savories" id="savories" aria-labelledby="savories-title" data-category>
+      <div class="container">
+        <div class="pr-sav-head reveal">
+          <div>
+            <p class="eyebrow">Savories</p>
+            <h2 id="savories-title">Crunch, <em>spice</em> and everything nice.</h2>
+            <p class="pr-lead">Slide through the tea-time lineup.</p>
+          </div>
+          <div class="pr-arrows" role="group" aria-label="Scroll savories">
+            <button class="icon-button" id="sav-prev" type="button" aria-label="Previous savories">
+              <i class="directional-icon" data-lucide="arrow-left" aria-hidden="true"></i>
+            </button>
+            <button class="icon-button" id="sav-next" type="button" aria-label="Next savories">
+              <i class="directional-icon" data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pr-track" id="sav-track" tabindex="0" aria-label="Savory products, scrollable">
+        <article class="pr-slide">
+          <div class="pr-slide-img">
+            <img src="https://i.pinimg.com/736x/b4/2f/f3/b42ff3771a6f59b0e0ffa4ff4c82d933.jpg"
+                 data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=700"
+                 alt="Spiral murukku, crisp and golden"
+                 width="700" height="700" loading="lazy" decoding="async">
+            <span class="pr-badge">Bestseller</span>
+          </div>
+          <p class="product-category">Rice &amp; lentil</p>
+          <h3>Murukku</h3>
+          <p>Crisp spirals with a toasty, gently spiced flavor.</p>
+          <div class="pr-card-foot">
+            <span class="pr-price">₹160 <small>/ 250 g</small></span>
+            <a class="pr-enquire" href="contact.html?topic=ordering&product=murukku" aria-label="Enquire about Murukku">Enquire
+              <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="pr-slide">
+          <div class="pr-slide-img">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banana_chips.jpg?width=700"
+                 data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=700"
+                 alt="Golden banana chips"
+                 width="700" height="700" loading="lazy" decoding="async">
+          </div>
+          <p class="product-category">Southern snack</p>
+          <h3>Banana Chips</h3>
+          <p>Thin, crunchy slices with a light salty finish.</p>
+          <div class="pr-card-foot">
+            <span class="pr-price">₹150 <small>/ 200 g</small></span>
+            <a class="pr-enquire" href="contact.html?topic=ordering&product=banana-chips" aria-label="Enquire about Banana Chips">Enquire
+              <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="pr-slide">
+          <div class="pr-slide-img">
+            <img src="https://i.pinimg.com/1200x/8b/22/20/8b2220388930ff8c3f573e6273482f92.jpg"
+                 data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=700"
+                 alt="Ribbon pakoda, a crisp gram-flour snack"
+                 width="700" height="700" loading="lazy" decoding="async">
+            <span class="pr-badge">Popular</span>
+          </div>
+          <p class="product-category">Gram-flour crunch</p>
+          <h3>Pakoda</h3>
+          <p>Flat, crackly ribbons made for sharing around the table.</p>
+          <div class="pr-card-foot">
+            <span class="pr-price">₹170 <small>/ 250 g</small></span>
+            <a class="pr-enquire" href="contact.html?topic=ordering&product=pakoda" aria-label="Enquire about Pakoda">Enquire
+              <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="pr-slide">
+          <div class="pr-slide-img">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aloo_bhujia.jpg?width=700"
+                 data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=700"
+                 alt="Thin aloo bhujia strands"
+                 width="700" height="700" loading="lazy" decoding="async">
+          </div>
+          <p class="product-category">Spiced &amp; crispy</p>
+          <h3>Aloo Bhujia</h3>
+          <p>Fine, peppery strands that disappear one handful at a time.</p>
+          <div class="pr-card-foot">
+            <span class="pr-price">₹140 <small>/ 200 g</small></span>
+            <a class="pr-enquire" href="contact.html?topic=ordering&product=aloo-bhujia" aria-label="Enquire about Aloo Bhujia">Enquire
+              <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="pr-slide">
+          <div class="pr-slide-img">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sev.jpg?width=700"
+                 data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Bombaymix.jpg?width=700"
+                 alt="Crunchy sev strands"
+                 width="700" height="700" loading="lazy" decoding="async">
+            <span class="pr-badge">New</span>
+          </div>
+          <p class="product-category">Tea-time crunch</p>
+          <h3>Karasev</h3>
+          <p>Crisp, peppery sev for snacking or topping your chaat.</p>
+          <div class="pr-card-foot">
+            <span class="pr-price">₹130 <small>/ 200 g</small></span>
+            <a class="pr-enquire" href="contact.html?topic=ordering&product=karasev" aria-label="Enquire about Karasev">Enquire
+              <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="container">
+        <div class="pr-progress" aria-hidden="true"><span id="sav-bar"></span></div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 / 7: Dry fruits (tall image + spec list) -->
+    <section class="section-space surface-alt pr-dry" id="dry-fruits" aria-labelledby="dry-title" data-category>
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5 reveal">
+            <figure class="pr-tall">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Assorted_dried_fruits.jpg?width=900"
+                   data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/MixedNuts.JPG?width=900"
+                   alt="An assortment of dry fruits and nuts"
+                   width="900" height="1100" loading="lazy" decoding="async">
+              <figcaption class="pr-float-tag">
+                <i data-lucide="nut" aria-hidden="true"></i>
+                <span>Choose your pack:<br><strong>100 g · 250 g · 500 g</strong></span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-lg-7 reveal">
+            <p class="eyebrow">Dry Fruits</p>
+            <h2 id="dry-title">Nature’s <em>little treasures.</em></h2>
+            <p class="pr-lead">
+              Crunchy, wholesome and easy to gift. Mix and match your favorites.
+            </p>
+
+            <ul class="pr-rows" data-stagger>
+              <li class="pr-row pr-st">
+                <span class="pr-row-no">01</span>
+                <div class="pr-row-main"><h3>Almonds</h3><p>Smooth, mild and satisfyingly crisp.</p></div>
+                <span class="pr-row-spec">100 g · 250 g · 500 g</span>
+                <span class="pr-price">from ₹120</span>
+                <a class="pr-round" href="contact.html?topic=ordering&product=almonds" aria-label="Enquire about Almonds">
+                  <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              </li>
+              <li class="pr-row pr-st">
+                <span class="pr-row-no">02</span>
+                <div class="pr-row-main"><h3>Cashews</h3><p>Buttery, rich and naturally sweet.</p></div>
+                <span class="pr-row-spec">100 g · 250 g · 500 g</span>
+                <span class="pr-price">from ₹140</span>
+                <a class="pr-round" href="contact.html?topic=ordering&product=cashews" aria-label="Enquire about Cashews">
+                  <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              </li>
+              <li class="pr-row pr-st">
+                <span class="pr-row-no">03</span>
+                <div class="pr-row-main"><h3>Pistachios</h3><p>Lightly crunchy with a gentle, nutty flavor.</p></div>
+                <span class="pr-row-spec">100 g · 250 g</span>
+                <span class="pr-price">from ₹190</span>
+                <a class="pr-round" href="contact.html?topic=ordering&product=pistachios" aria-label="Enquire about Pistachios">
+                  <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              </li>
+              <li class="pr-row pr-st">
+                <span class="pr-row-no">04</span>
+                <div class="pr-row-main"><h3>Raisins</h3><p>Plump, juicy and perfect for sweets and snacking.</p></div>
+                <span class="pr-row-spec">100 g · 250 g · 500 g</span>
+                <span class="pr-price">from ₹70</span>
+                <a class="pr-round" href="contact.html?topic=ordering&product=raisins" aria-label="Enquire about Raisins">
+                  <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              </li>
+              <li class="pr-row pr-st">
+                <span class="pr-row-no">05</span>
+                <div class="pr-row-main"><h3>Dates</h3><p>Soft, caramel-like and naturally sweet.</p></div>
+                <span class="pr-row-spec">250 g · 500 g</span>
+                <span class="pr-price">from ₹110</span>
+                <a class="pr-round" href="contact.html?topic=ordering&product=dates" aria-label="Enquire about Dates">
+                  <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 / 7: Gift boxes (3 tilt cards, centre raised) -->
+    <section class="section-space pr-gifts" id="gift-boxes" aria-labelledby="gifts-title" data-category>
+      <div class="container">
+        <div class="section-heading text-center reveal">
+          <p class="eyebrow">Gift Boxes</p>
+          <h2 id="gifts-title">Ready to give. <em>Hard to forget.</em></h2>
+          <p>Three thoughtfully arranged boxes for every kind of occasion.</p>
+        </div>
+
+        <div class="row g-4 align-items-stretch" data-stagger>
+          <div class="col-md-6 col-lg-4 pr-st">
+            <article class="pr-gift" data-tilt>
+              <div class="pr-gift-img">
+                <img src="https://i.pinimg.com/1200x/a3/2d/b2/a32db2d2067f67fe2cd55aed6a1b88dd.jpg"
+                     data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Box_with_savories_and_sweets_on_a_plain_background.jpg?width=800"
+                     alt="A box of assorted Indian sweets"
+                     width="800" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="pr-gift-body">
+                <p class="product-category">Birthdays &amp; thank-yous</p>
+                <h3>Classic Sweet Box</h3>
+                <ul class="pr-checks">
+                  <li><i data-lucide="check" aria-hidden="true"></i> Assorted traditional sweets</li>
+                  <li><i data-lucide="check" aria-hidden="true"></i> Neatly arranged for gifting</li>
+                  <li><i data-lucide="check" aria-hidden="true"></i> Sizes to suit your plans</li>
+                </ul>
+                <div class="pr-card-foot">
+                  <span class="pr-price">₹599 <small>/ box</small></span>
+                  <a class="button button-secondary" href="contact.html?topic=gift-customization&product=classic-sweet-box"
+                     aria-label="Enquire about Classic Sweet Box">Enquire</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pr-st">
+            <article class="pr-gift pr-gift-featured" data-tilt>
+              <span class="pr-ribbon">Our pick</span>
+              <div class="pr-gift-img">
+                <img src="https://i.pinimg.com/1200x/08/22/7a/08227a17b5eace4afee2e9a6b3d62aff.jpg"
+                     data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Box_with_savories_and_sweets_on_a_plain_background.jpg?width=800"
+                     alt="A hamper of sweets and savories"
+                     width="800" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="pr-gift-body">
+                <p class="product-category">Festivals &amp; family visits</p>
+                <h3>Sweet &amp; Savory Hamper</h3>
+                <ul class="pr-checks">
+                  <li><i data-lucide="check" aria-hidden="true"></i> Sweets plus crunchy savories</li>
+                  <li><i data-lucide="check" aria-hidden="true"></i> A little something for everyone</li>
+                  <li><i data-lucide="check" aria-hidden="true"></i> Customizable on request</li>
+                </ul>
+                <div class="pr-card-foot">
+                  <span class="pr-price">₹899 <small>/ hamper</small></span>
+                  <a class="button button-primary" href="contact.html?topic=gift-customization&product=sweet-savory-hamper"
+                     aria-label="Enquire about Sweet and Savory Hamper">Enquire</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pr-st">
+            <article class="pr-gift" data-tilt>
+              <div class="pr-gift-img">
+                <img src="https://i.pinimg.com/1200x/0a/4e/dc/0a4edc6030f4ded0ac95f84be8dbe474.jpg"
+                     data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/MixedNuts.JPG?width=800"
+                     alt="A gift box filled with dry fruits and nuts"
+                     width="800" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="pr-gift-body">
+                <p class="product-category">Corporate &amp; wellness gifting</p>
+                <h3>Premium Dry Fruit Box</h3>
+                <ul class="pr-checks">
+                  <li><i data-lucide="check" aria-hidden="true"></i> Almonds, cashews and more</li>
+                  <li><i data-lucide="check" aria-hidden="true"></i> Elegant, easy-to-share pack</li>
+                  <li><i data-lucide="check" aria-hidden="true"></i> Ideal for teams and clients</li>
+                </ul>
+                <div class="pr-card-foot">
+                  <span class="pr-price">₹1,099 <small>/ box</small></span>
+                  <a class="button button-secondary" href="contact.html?topic=gift-customization&product=premium-dry-fruit-box"
+                     aria-label="Enquire about Premium Dry Fruit Box">Enquire</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 / 7: Centered final CTA -->
+    <section class="pr-cta" aria-labelledby="pr-cta-title">
+      <div class="container text-center reveal">
+        <span class="pr-cta-orn" aria-hidden="true">✧</span>
+        <h2 id="pr-cta-title">Found your favorites?</h2>
+        <p>
+          Tell us the products, quantity and date. The store will confirm
+          availability and arrangements with you.
+        </p>
+        <div class="button-group">
+          <a class="button button-primary" href="contact.html?topic=ordering">
+            Start an Enquiry
+            <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+          <a class="button button-secondary" href="festival-orders.html">Festival Orders</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER: identical to home -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
+            <svg class="brand-symbol" aria-hidden="true">
+              <use href="#shop-symbol"></use>
+            </svg>
+            <span class="brand-copy">
+              <span class="brand-name"><span class="secondary-word">Mithai</span> <span class="tales-word">Tales</span></span>
+              <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
+            </span>
+          </a>
+          <p class="footer-logo-tagline">
+            Handcrafted tradition, festive joy, and everyday sweetness in every bite.
+          </p>
+          <p>
+            Traditional sweets, savory moments and thoughtful gifts.
+            Made for the joy of sharing.
+          </p>
+
+          <!-- EDIT: Replace example.com URLs with your verified social profiles. -->
+          <div class="social-links" aria-label="Social profiles">
+            <a href="https://example.com/replace-instagram"
+               aria-label="Instagram — replace with your profile">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-facebook"
+               aria-label="Facebook — replace with your profile">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-youtube"
+               aria-label="YouTube — replace with your channel">
+              <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://example.com/replace-whatsapp"
+               aria-label="WhatsApp — replace with your business link">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer quick links">
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="festival-orders.html">Festival Orders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Product categories">
+          <h2 class="footer-title">Categories</h2>
+          <ul class="footer-links">
+            <li><a href="products.html?category=sweets">Sweets</a></li>
+            <li><a href="products.html?category=savories">Savories</a></li>
+            <li><a href="products.html?category=dry-fruits">Dry Fruits</a></li>
+            <li><a href="products.html?category=gift-boxes">Gift Boxes</a></li>
+            <li><a href="products.html?category=corporate-gifts">Corporate Gifts</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links">
+            <li><a href="contact.html?topic=ordering">Ordering enquiries</a></li>
+          </ul>
+          <div class="footer-contact-list" aria-label="Store contact details">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill"></i>
+              </span>
+              <span class="contact-detail">12 Example Lane, Hyderabad, Telangana 500033</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-telephone-fill"></i>
+              </span>
+              <span class="contact-detail">+91 00000 00000</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <i class="bi bi-envelope-fill"></i>
+              </span>
+              <span class="contact-detail">hello@mithaitales.example.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-promo">
+          <h2 class="footer-title">A Sweet Celebration</h2>
+          <p>Make your next gathering memorable with sweets and thoughtful gift boxes.</p>
+          <a class="button button-primary" href="festival-orders.html">
+            Explore Festival Orders
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="copyright-year">2026</span> Mithai Tales. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
