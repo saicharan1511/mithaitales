@@ -70,13 +70,20 @@
   display: flex;
   align-items: center;
   gap: .75rem;
-  color: var(--secondary);
+  width: fit-content;
+  padding: .4rem .8rem;
+  border: 1px solid var(--secondary);
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--primary);
   font-size: .75rem;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
   margin-block-end: 1.4rem;
 }
+
+.c-eyebrow .eyebrow-line { background: var(--primary); }
 
 .c-hero h1 {
   color: #fff;

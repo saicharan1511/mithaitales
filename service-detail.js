@@ -87,7 +87,6 @@
 
   root.innerHTML = `
   <section class="sd-hero" aria-labelledby="sd-title"><div class="container">
-    <ol class="crumbs"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li aria-current="page">${s.title}</li></ol>
     <div class="row align-items-center g-5">
       <div class="col-lg-6"><span class="sd-icon"><i data-lucide="${s.icon}" aria-hidden="true"></i></span>
         <p class="eyebrow">Service Details</p><h1 id="sd-title">${s.title}</h1><p class="sd-lead">${s.tag}</p>

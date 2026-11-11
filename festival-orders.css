@@ -96,7 +96,12 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  color: var(--secondary);
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(214, 166, 71, 0.45);
+  border-radius: 999px;
+  background: #fffdf9;
+  color: var(--primary);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -447,7 +452,16 @@
   animation: fo-spin-slow 40s linear infinite;
   pointer-events: none;
 }
-.fo-expect .eyebrow { color: var(--secondary); }
+.fo-expect .eyebrow,
+.fo-cta-eyebrow {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(214, 166, 71, 0.45);
+  border-radius: 999px;
+  background: #fffdf9;
+  color: var(--primary);
+}
 .fo-expect h2 { color: #ffffff; }
 .fo-expect-lead { color: rgba(255, 255, 255, 0.85); }
 
@@ -659,7 +673,6 @@
   animation: fo-float 4s ease-in-out infinite;
 }
 .fo-cta-eyebrow {
-  color: var(--secondary);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
