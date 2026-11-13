@@ -52,6 +52,12 @@
     linear-gradient(0deg, rgba(20, 8, 10, .75), transparent 45%);
 }
 
+[data-theme="dark"] .c-hero::before {
+  background:
+    linear-gradient(100deg, rgba(14, 7, 10, .98) 0%, rgba(34, 13, 20, .92) 48%, rgba(8, 8, 9, .7) 100%),
+    linear-gradient(0deg, rgba(8, 6, 8, .88), transparent 45%);
+}
+
 @keyframes c-kenburns {
   from { transform: scale(1.04); }
   to   { transform: scale(1.14) translate(-1.5%, -1%); }
@@ -96,7 +102,7 @@
 }
 
 .c-hero h1 em {
-  color: var(--secondary);
+  color: #fff;
   font-weight: 400;
 }
 
@@ -128,18 +134,25 @@
   border-color: #fff;
   color: var(--primary);
 }
-.c-hero .button-secondary,
 .c-cta .button-secondary {
   border-color: rgba(255,255,255,.7);
   color: #fff;
 }
-.c-hero .button-secondary:hover,
-.c-hero .button-secondary:focus-visible,
 .c-cta .button-secondary:hover,
 .c-cta .button-secondary:focus-visible {
   background: #fff;
   border-color: #fff;
   color: var(--primary);
+}
+.c-hero-text-link {
+  align-self: center;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.c-hero-text-link:hover,
+.c-hero-text-link:focus-visible {
+  color: var(--secondary);
 }
 
 /* Glass contact strip */
@@ -682,10 +695,9 @@
 .c-cta {
   position: relative;
   isolation: isolate;
-  padding-block: clamp(4rem, 8vw, 7rem);
-  color: #fff;
   overflow: hidden;
-  background: var(--primary);
+  padding-block: clamp(3rem, 6vw, 5rem);
+  color: #fff;
 }
 .c-cta-bg {
   position: absolute;
@@ -704,24 +716,50 @@
   z-index: -1;
   background: linear-gradient(90deg, rgba(122,36,53,.96) 0%, rgba(122,36,53,.88) 55%, rgba(42,10,20,.8) 100%);
 }
-.c-cta::after {
+[data-theme="dark"] .c-cta::before {
+  background: linear-gradient(90deg, rgba(8,7,8,.97) 0%, rgba(22,14,17,.94) 55%, rgba(8,8,9,.92) 100%);
+}
+.c-cta-layout {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: center;
+  min-inline-size: 0;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.75rem, 4vw, 3rem);
+  border-radius: 28px;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+}
+[data-theme="dark"] .c-cta-layout {
+  background: #171315;
+}
+.c-cta-layout::before {
   content: "";
   position: absolute;
-  inset: 1.25rem;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(122,36,53,.96) 0%, rgba(122,36,53,.88) 55%, rgba(42,10,20,.8) 100%);
+}
+[data-theme="dark"] .c-cta-layout::before {
+  background: linear-gradient(90deg, rgba(17,14,15,.96) 0%, rgba(29,20,23,.93) 55%, rgba(12,11,12,.96) 100%);
+}
+.c-cta-layout::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
   border: 1px solid rgba(214,166,71,.55);
-  border-radius: 28px;
+  border-radius: 20px;
   pointer-events: none;
 }
 
-.c-cta-layout {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-}
+.c-cta-copy,
+.c-cta-actions { min-inline-size: 0; }
 
 .c-cta-ornament { display: inline-block; font-size: 2.25rem; color: var(--secondary); line-height: 1; margin-block-end: 1rem; animation: c-spin 12s linear infinite; }
-.c-cta h2 { color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); max-inline-size: 16ch; max-inline-size: 18em; }
+.c-cta h2 { color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); max-inline-size: 16ch; }
 .c-cta-copy p { color: rgba(255,255,255,.9); max-inline-size: 480px; margin-block-end: 1.75rem; }
 
 .c-cta .button-primary { background: var(--secondary); border-color: var(--secondary); color: #211e1c; }
@@ -808,7 +846,8 @@
   .c-topic { min-block-size: 0; }
   .c-hero .button-group { flex-direction: column; align-items: stretch; inline-size: 100%; }
   .c-actions .button { flex: 1 1 100%; }
-  .c-cta::after { inset: .6rem; border-radius: 18px; }
+  .c-cta-layout { padding: 2rem 1.5rem; }
+  .c-cta-layout::after { inset: .6rem; border-radius: 18px; }
   .c-steps { padding-inline-start: 3.75rem; }
   .c-step-num { inset-inline-start: -3.75rem; inline-size: 42px; block-size: 42px; }
   .c-steps-line { inset-inline-start: 20px; }

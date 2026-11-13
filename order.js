@@ -376,8 +376,8 @@
      ------------------------------------------------------- */
   document.body.classList.add("enhanced");
   themeButton.hidden = false;
-  directionButton.hidden = false;
   applyTheme(root.dataset.theme);
+  directionButton.hidden = false;
   applyDirection(root.dir);
   renderProducts();
   renderCart();

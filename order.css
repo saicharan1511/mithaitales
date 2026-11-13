@@ -19,11 +19,8 @@ body:has(dialog[open]) { overflow: hidden; }
 
 /* ---------- Top bar ---------- */
 .order-bar {
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 900;
-  background: var(--header-bg);
-  border-block-end: 1px solid var(--border);
+  position: relative;
+  background: var(--bg);
 }
 
 .order-bar-inner {

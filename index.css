@@ -935,6 +935,10 @@ body:not(.enhanced) .home-options { margin-block: 0.5rem; }
   color: #ffffff;
 }
 
+[data-theme="dark"] .final-cta {
+  background: linear-gradient(135deg, #141112, #24171b);
+}
+
 .final-cta h2 {
   color: #ffffff;
   max-inline-size: 770px;

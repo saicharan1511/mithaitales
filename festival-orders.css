@@ -71,6 +71,18 @@
     linear-gradient(to top, rgba(20, 8, 12, 0.85), transparent 40%);
 }
 
+[data-theme="dark"] .fo-hero-overlay {
+  background:
+    linear-gradient(100deg, rgba(14, 7, 10, 0.98) 0%, rgba(34, 13, 20, 0.94) 45%, rgba(8, 8, 9, 0.76) 100%),
+    linear-gradient(to top, rgba(8, 6, 8, 0.88), transparent 40%);
+}
+
+[data-theme="dark"][dir="rtl"] .fo-hero-overlay {
+  background:
+    linear-gradient(260deg, rgba(14, 7, 10, 0.98) 0%, rgba(34, 13, 20, 0.94) 45%, rgba(8, 8, 9, 0.76) 100%),
+    linear-gradient(to top, rgba(8, 6, 8, 0.88), transparent 40%);
+}
+
 .fo-hero-glow {
   position: absolute;
   z-index: -1;
@@ -117,23 +129,10 @@
   max-inline-size: 15ch;
 }
 .fo-hero h1 em {
-  color: var(--secondary);
+  color: #ffffff;
   font-weight: 400;
-  position: relative;
   white-space: nowrap;
 }
-.fo-hero h1 em::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  inset-block-end: 0.04em;
-  block-size: 3px;
-  background: var(--secondary);
-  transform-origin: left;
-  animation: fo-underline 1.2s 1s ease both;
-}
-[dir="rtl"] .fo-hero h1 em::after { transform-origin: right; }
-@keyframes fo-underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 .fo-hero-lead {
   max-inline-size: 540px;
@@ -155,17 +154,15 @@
   transform: translateY(-3px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
-.fo-hero .button-secondary {
-  border-color: rgba(255, 255, 255, 0.7);
+.fo-hero-text-link {
+  align-self: center;
   color: #ffffff;
-  backdrop-filter: blur(6px);
+  font-weight: 700;
+  text-decoration: underline;
 }
-.fo-hero .button-secondary:hover,
-.fo-hero .button-secondary:focus-visible {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: var(--primary);
-  transform: translateY(-3px);
+.fo-hero-text-link:hover,
+.fo-hero-text-link:focus-visible {
+  color: var(--secondary);
 }
 .fo-hero :focus-visible,
 .fo-cta :focus-visible,
@@ -201,6 +198,8 @@
   animation: fo-float 7s ease-in-out infinite;
   transition: border-color var(--transition), background var(--transition);
 }
+[data-theme="dark"] .fo-planner { background: rgba(18, 15, 16, 0.76); }
+[data-theme="dark"] .fo-planner:hover { background: rgba(18, 15, 16, 0.88); }
 .fo-planner:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--secondary); }
 
 .fo-planner-kicker {
@@ -262,6 +261,7 @@
 }
 .fo-chip-top { inset-block-start: -16px; inset-inline-end: 24px; animation: fo-float 5s ease-in-out infinite; }
 .fo-chip-bottom { inset-block-end: -16px; inset-inline-start: 24px; background: #ffffff; color: var(--primary); animation: fo-float 6s 1s ease-in-out infinite; }
+[data-theme="dark"] .fo-chip-bottom { background: #222222; color: var(--secondary); }
 
 /* Marquee */
 .fo-marquee {
@@ -634,6 +634,10 @@
   inset: 0;
   z-index: -2;
   background: linear-gradient(120deg, rgba(34, 9, 16, 0.92), rgba(122, 36, 53, 0.72));
+}
+
+[data-theme="dark"] .fo-cta-overlay {
+  background: linear-gradient(120deg, rgba(8, 7, 8, 0.97), rgba(24, 14, 17, 0.9));
 }
 
 .fo-cta-panel {

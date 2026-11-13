@@ -64,7 +64,7 @@
     </symbol>
   </svg>
 
-  <!-- Minimal top bar: brand on one side, theme and direction on the other. -->
+  <!-- Non-sticky utility bar with brand and display controls. -->
   <div class="order-bar">
     <div class="container order-bar-inner">
       <a class="brand-link" href="index.html" aria-label="Mithai Tales home">
@@ -76,15 +76,13 @@
           <span class="brand-tagline">Every Bite Tells a Sweet Story.</span>
         </span>
       </a>
-
       <div class="header-controls">
         <button class="icon-button" id="theme-toggle" type="button"
                 aria-label="Switch to dark mode" aria-pressed="false" hidden>
           <i class="bi bi-moon-stars" aria-hidden="true"></i>
         </button>
-        <button class="icon-button" id="direction-toggle" type="button"
-                aria-label="Switch to right-to-left layout"
-                aria-pressed="false" hidden>
+        <button class="icon-button direction-button" id="direction-toggle" type="button"
+                aria-label="Switch to right-to-left layout" aria-pressed="false" hidden>
           <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
         </button>
       </div>

@@ -670,7 +670,7 @@ body:not(.enhanced) .home-options {
 }
 
 .hero-title em {
-    color: var(--secondary);
+    color: #ffffff;
     font-weight: 400;
 }
 
@@ -703,17 +703,19 @@ body:not(.enhanced) .home-options {
     color: #211e1c;
 }
 
-.button-outline-light {
-    border-color: rgba(255, 255, 255, 0.7);
+.hero-products-link {
+    align-self: center;
     color: #fff;
-    background: transparent;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
-.button-outline-light:hover,
-.button-outline-light:focus-visible {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    color: #211e1c;
+.hero-products-link:focus-visible {
+    color: #fff;
+}
+
+.hero-products-link:hover {
+    color: var(--secondary);
 }
 
 .about-hero :focus-visible {
@@ -1397,6 +1399,10 @@ body:not(.enhanced) .home-options {
 
 .cta-text p:not(.eyebrow) {
     color: var(--muted);
+}
+
+[data-theme="dark"] .about-cta .cta-text h2 {
+    color: var(--heading);
 }
 
 .cta-panel {

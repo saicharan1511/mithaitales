@@ -603,12 +603,23 @@ body:not(.enhanced) .home-options {
 }
 
 .h2-hero h1 em {
-    color: var(--secondary);
+    color: #ffffff;
 }
 
 .h2-hero-text {
     max-inline-size: 500px;
     color: rgba(255, 255, 255, 0.82);
+}
+
+.h2-hero .button-primary {
+    border-color: var(--secondary);
+}
+
+.h2-hero .button-primary:hover,
+.h2-hero .button-primary:focus-visible {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #211e1c;
 }
 
 .h2-hero .button-secondary {
@@ -621,6 +632,17 @@ body:not(.enhanced) .home-options {
     background: var(--secondary);
     border-color: var(--secondary);
     color: #211e1c;
+}
+
+.h2-hero-text-link {
+    align-self: center;
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.h2-hero-text-link:focus-visible {
+    color: #ffffff;
 }
 
 .h2-hero :focus-visible,
@@ -1391,6 +1413,12 @@ body:not(.enhanced) .home-options {
     box-shadow: var(--shadow);
 }
 
+[data-theme="dark"] .h2-final-card {
+    background:
+        radial-gradient(circle at 95% 10%, rgba(214, 166, 71, 0.1), transparent 28%),
+        linear-gradient(120deg, #121011, #21171a 70%, #171214);
+}
+
 .h2-final-copy {
     position: relative;
     z-index: 1;
@@ -1445,17 +1473,6 @@ body:not(.enhanced) .home-options {
 
 .h2-final-cta :focus-visible {
     outline-color: #ffffff;
-}
-
-.h2-final-ornament {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    inset-inline-end: 1.5rem;
-    inset-block-end: -4rem;
-    color: rgba(214, 166, 71, 0.12);
-    font-size: clamp(10rem, 22vw, 19rem);
-    line-height: 1;
 }
 
 /* =========================================================

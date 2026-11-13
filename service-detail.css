@@ -20,6 +20,10 @@
     background: radial-gradient(circle at 90% 10%, rgba(214, 166, 71, .3), transparent 45%), linear-gradient(135deg, #4a1220, #7a2435 60%, #5a1829)
 }
 
+[data-theme="dark"] .sd-hero {
+    background: radial-gradient(ellipse at 80% 30%, rgba(214, 166, 71, .12), transparent 55%), linear-gradient(135deg, #100e0e 0%, #261319 55%, #141112 100%)
+}
+
 .sd-hero::after {
     content: "";
     position: absolute;
@@ -64,7 +68,11 @@
 }
 
 .sd-hero .eyebrow {
-    color: var(--secondary)
+    width: fit-content;
+    padding: .45rem .8rem;
+    border-radius: 999px;
+    background: var(--secondary);
+    color: var(--primary)
 }
 
 .sd-icon {
@@ -299,6 +307,10 @@
     overflow: hidden;
     background: radial-gradient(circle at 15% 0%, rgba(214, 166, 71, .3), transparent 50%), linear-gradient(135deg, #5a1829, #7a2435);
     box-shadow: var(--shadow)
+}
+
+[data-theme="dark"] .cta-card {
+    background: radial-gradient(circle at 15% 0%, rgba(214, 166, 71, .12), transparent 50%), linear-gradient(135deg, #141112, #24171b)
 }
 
 .cta-card::before {

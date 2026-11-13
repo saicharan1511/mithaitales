@@ -90,8 +90,7 @@
     <div class="row align-items-center g-5">
       <div class="col-lg-6"><span class="sd-icon"><i data-lucide="${s.icon}" aria-hidden="true"></i></span>
         <p class="eyebrow">Service Details</p><h1 id="sd-title">${s.title}</h1><p class="sd-lead">${s.tag}</p>
-        <div class="button-group"><a class="button button-primary" href="${enquiry}">Enquire Now <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
-        <a class="button button-light" href="#pricing">See Pricing</a></div></div>
+        <div class="button-group"><a class="button button-primary" href="${enquiry}">Enquire Now <i class="directional-icon" data-lucide="arrow-up-right" aria-hidden="true"></i></a></div></div>
       <div class="col-lg-6"><figure class="sd-photo"><img src="${s.img}" alt="${s.title} — representative photograph" fetchpriority="high" decoding="async"></figure></div>
     </div></div></section>
 
