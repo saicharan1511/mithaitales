@@ -171,7 +171,7 @@ svg.lucide {
 }
 
 .container {
-    --bs-gutter-x: 2rem;
+    --bs-gutter-x: clamp(2rem, 4vw, 4rem);
 }
 
 .section-space {
@@ -691,16 +691,16 @@ body:not(.enhanced) .home-options {
 }
 
 .about-hero .button-group .button-primary {
-    background: var(--primary);
+    background: var(--secondary);
     border-color: var(--secondary);
-    color: #ffffff;
+    color: var(--primary);
 }
 
 .about-hero .button-group .button-primary:hover,
 .about-hero .button-group .button-primary:focus-visible {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    color: #211e1c;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
 }
 
 .hero-products-link {
@@ -1381,7 +1381,7 @@ body:not(.enhanced) .home-options {
    SECTION 7: CTA (split card)
    ========================================================= */
 .about-cta {
-    padding-block: 0 clamp(4rem, 7vw, 6rem);
+    padding-block: clamp(4rem, 7vw, 6rem);
 }
 
 .cta-split {

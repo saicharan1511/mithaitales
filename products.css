@@ -219,16 +219,16 @@ h2 em {
   margin-block-end: 2rem;
 }
 
-.pr-hero .button-primary {
+#main-content .pr-hero .button-primary {
   background: var(--secondary);
   border-color: var(--secondary);
   color: #211e1c;
 }
-.pr-hero .button-primary:hover,
-.pr-hero .button-primary:focus-visible {
-  background: #fff;
-  border-color: #fff;
-  color: var(--primary);
+#main-content .pr-hero .button-primary:hover,
+#main-content .pr-hero .button-primary:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
 }
 .pr-hero .button-secondary {
   border-color: rgba(255, 255, 255, 0.7);

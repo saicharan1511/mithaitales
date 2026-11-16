@@ -147,7 +147,7 @@ svg.lucide {
   overflow: hidden;
 }
 
-.container { --bs-gutter-x: 2rem; }
+.container { --bs-gutter-x: clamp(2rem, 4vw, 4rem); }
 
 .section-space { padding-block: clamp(4rem, 7vw, 6.5rem); }
 
@@ -310,7 +310,7 @@ svg.lucide {
 }
 
 .brand-name {
-  color: var(--accent-text);
+  color: var(--primary);
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.2rem;
   font-weight: 700;
@@ -1298,8 +1298,6 @@ body:not(.enhanced) .home-options { margin-block: 0.5rem; }
 }
 
 @media (max-width: 575.98px) {
-  .container { --bs-gutter-x: 2rem; }
-
   h1 { font-size: clamp(2.5rem, 10vw, 3.25rem); }
 
   .hero .eyebrow { font-size: 0.64rem; letter-spacing: 0.08em; }

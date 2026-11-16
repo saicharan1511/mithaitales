@@ -69,7 +69,9 @@
 }
 
 .svc-hero .button-primary {
-    border-color: var(--secondary)
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary)
 }
 
 .svc-hero-text-link {
@@ -416,6 +418,13 @@
     background: var(--secondary);
     border-color: var(--secondary);
     color: #211e1c
+}
+
+.svc-hero .button-group .button-primary:hover,
+.svc-hero .button-group .button-primary:focus-visible {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff
 }
 
 .cta-orn {

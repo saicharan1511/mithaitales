@@ -178,7 +178,7 @@ svg.lucide {
 }
 
 .container {
-    --bs-gutter-x: 2rem;
+    --bs-gutter-x: clamp(2rem, 4vw, 4rem);
 }
 
 .section-space {
@@ -590,18 +590,6 @@ body:not(.enhanced) .home-options {
     color: #ffffff;
 }
 
-.h2-hero-copy .h2-eyebrow-light {
-    inline-size: fit-content;
-    padding: 0.45rem 0.75rem;
-    border-radius: 999px;
-    background: var(--secondary);
-    color: var(--primary);
-}
-
-.h2-hero-copy .h2-eyebrow-light .eyebrow-line {
-    background: var(--primary);
-}
-
 .h2-hero h1 em {
     color: #ffffff;
 }
@@ -612,14 +600,16 @@ body:not(.enhanced) .home-options {
 }
 
 .h2-hero .button-primary {
+    background: var(--secondary);
     border-color: var(--secondary);
+    color: var(--primary);
 }
 
 .h2-hero .button-primary:hover,
 .h2-hero .button-primary:focus-visible {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    color: #211e1c;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
 }
 
 .h2-hero .button-secondary {
@@ -636,13 +626,14 @@ body:not(.enhanced) .home-options {
 
 .h2-hero-text-link {
     align-self: center;
-    color: var(--secondary);
+    color: #ffffff;
     font-weight: 700;
     text-decoration: underline;
 }
 
+.h2-hero-text-link:hover,
 .h2-hero-text-link:focus-visible {
-    color: #ffffff;
+    color: var(--secondary);
 }
 
 .h2-hero :focus-visible,

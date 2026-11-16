@@ -141,16 +141,16 @@
   margin-block-end: 2rem;
 }
 
-.fo-hero .button-primary {
+#main-content .fo-hero .button-primary {
   background: var(--secondary);
   border-color: var(--secondary);
   color: #211e1c;
 }
-.fo-hero .button-primary:hover,
-.fo-hero .button-primary:focus-visible {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: var(--primary);
+#main-content .fo-hero .button-primary:hover,
+#main-content .fo-hero .button-primary:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }

@@ -42,6 +42,19 @@
     color: #fff
 }
 
+.sd-hero .button-primary {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary)
+}
+
+.sd-hero .button-primary:hover,
+.sd-hero .button-primary:focus-visible {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff
+}
+
 .sd-hero :focus-visible {
     outline-color: #fff
 }
@@ -112,6 +125,10 @@
     grid-template-columns: 1.5fr 1fr;
     gap: 3rem;
     align-items: start
+}
+
+.sd-body > .eyebrow {
+    color: var(--primary)
 }
 
 .sd-body p {
