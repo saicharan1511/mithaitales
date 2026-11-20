@@ -170,7 +170,8 @@
         updateHeaderHeight();
     }
 
-    mobileButton.addEventListener("click", () => {
+    mobileButton.addEventListener("click", (event) => {
+        event.stopPropagation();
         setMobileOpen(!mobileIsOpen());
     });
 

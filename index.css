@@ -1298,7 +1298,45 @@ body:not(.enhanced) .home-options { margin-block: 0.5rem; }
 }
 
 @media (max-width: 575.98px) {
-  h1 { font-size: clamp(2.5rem, 10vw, 3.25rem); }
+  body { overflow-x: hidden; }
+
+  .container {
+    --bs-gutter-x: 1rem;
+  }
+
+  .section-space {
+    padding-block: 3.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 11vw, 2.75rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .brand-symbol {
+    inline-size: 44px;
+    block-size: 44px;
+  }
+
+  .brand-link {
+    gap: 0.55rem;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.58rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-block: 2.25rem 1.5rem;
+  }
 
   .hero .eyebrow { font-size: 0.64rem; letter-spacing: 0.08em; }
 
@@ -1307,14 +1345,27 @@ body:not(.enhanced) .home-options { margin-block: 0.5rem; }
     align-items: stretch;
   }
 
-  .hero-arch img { block-size: 270px; }
+  .hero .button {
+    inline-size: 100%;
+  }
+
+  .hero-arch img { block-size: 230px; }
 
   .hero-photo { padding-inline: 0.4rem; }
 
   .hero-photo figcaption { font-size: 1rem; }
 
   .category-image img,
-  .product-image img { block-size: 240px; }
+  .product-image img { block-size: 220px; }
+
+  .category-content,
+  .product-content {
+    padding: 1.15rem;
+  }
+
+  .heading-split > p {
+    font-size: 0.92rem;
+  }
 
   .story-image img { block-size: 280px; }
 
@@ -1330,10 +1381,28 @@ body:not(.enhanced) .home-options { margin-block: 0.5rem; }
 
   .faq-answer { padding-inline-end: 0; }
 
-  .footer-grid { gap: 2rem 1rem; }
+  .site-footer {
+    padding-block: 3rem 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
   .footer-brand,
-  .footer-grid > div:last-child { grid-column: 1 / -1; }
+  .footer-grid > div:last-child {
+    grid-column: auto;
+  }
+
+  .footer-brand > p,
+  .footer-promo p {
+    max-inline-size: none;
+  }
+
+  .footer-promo .button {
+    inline-size: 100%;
+  }
 
   .footer-bottom {
     align-items: flex-start;
